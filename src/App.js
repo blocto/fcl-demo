@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import * as fcl from "@onflow/fcl";
+
 import './App.css';
+import Point from './Point';
+import CurrentUser from './CurrentUser';
+import ScriptOne from "./ScriptOne"
+import ScriptTwo from './ScriptTwo';
+import TransactionOne from './TransactionOne';
+
+fcl.config()
+  .put("challenge.handshake", "http://localhost:8701/flow/authenticate")
+  .put("decoder.SomeStruct", data => new Point(data))
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CurrentUser />
+      <ScriptOne />
+      <ScriptTwo />
+      <TransactionOne />
     </div>
   );
 }
