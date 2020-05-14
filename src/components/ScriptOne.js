@@ -2,7 +2,8 @@ import React, {useState} from "react"
 import styled from "styled-components"
 import * as fcl from "@onflow/fcl"
 
-const Root = styled.div``
+import Card from './Card'
+
 const Header = styled.div``
 const Button = styled.button``
 const Results = styled.pre``
@@ -23,10 +24,10 @@ export default function ScriptOne() {
   }
 
   return (
-    <Root>
+    <Card>
       <Header>Script One</Header>
       <Button onClick={runScript}>Run Script</Button>
       {data && <Results>{JSON.stringify(data, null, 2)}</Results>}
-    </Root>
+    </Card>
   )
 }

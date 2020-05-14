@@ -2,7 +2,8 @@ import React, {useState, useEffect} from "react"
 import styled from "styled-components"
 import * as fcl from "@onflow/fcl"
 
-const Root = styled.div``
+import Card from './Card'
+
 const Img = styled.img`
   width: 35px;
   height: 35px;
@@ -36,10 +37,10 @@ const CurrentUser = () => {
   useEffect(() => fcl.currentUser().subscribe(user => setUser({...user})), [])
 
   return (
-    <Root>
+    <Card>
       <SignInButton user={user} />
       <UserProfile user={user} />
-    </Root>
+    </Card>
   )
 }
 

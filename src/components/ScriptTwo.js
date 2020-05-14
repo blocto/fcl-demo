@@ -2,7 +2,8 @@ import React, {useState} from "react"
 import styled from "styled-components"
 import * as fcl from "@onflow/fcl"
 
-const Root = styled.div``
+import Card from './Card'
+
 const Header = styled.div``
 const Button = styled.button``
 const Results = styled.pre``
@@ -33,12 +34,12 @@ export default function ScriptTwo() {
   }
 
   return (
-    <Root>
+    <Card>
       <Header>Script Two</Header>
       <Button onClick={runScript}>Run Script</Button>
       {data && <Results>{JSON.stringify(data, null, 2)}</Results>}
       <span>{data && data !== null && data[0].constructor.name} 1 </span> {/* Point 1 */}
       <span>{data && data !== null && data[1].constructor.name} 2 </span> {/* Point 1 */}
-    </Root>
+    </Card>
   )
 }

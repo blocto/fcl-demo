@@ -3,10 +3,10 @@ import * as fcl from "@onflow/fcl";
 
 import './App.css';
 import Point from './Point';
-import CurrentUser from './CurrentUser';
-import ScriptOne from "./ScriptOne"
-import ScriptTwo from './ScriptTwo';
-import TransactionOne from './TransactionOne';
+import CurrentUser from './components/CurrentUser';
+import ScriptOne from "./components/ScriptOne"
+import ScriptTwo from './components/ScriptTwo';
+import TransactionOne from './components/TransactionOne';
 
 fcl.config()
   .put("challenge.handshake", "http://localhost:8701/flow/authenticate")

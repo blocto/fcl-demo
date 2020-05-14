@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from "react"
+import React, {useState} from "react"
 import styled from "styled-components"
 import * as fcl from "@onflow/fcl"
 
-const Root = styled.div``
+import Card from './Card'
+
 const Button = styled.button``
 const Status = styled.pre``
 
@@ -35,9 +36,9 @@ export default function TransactionOne() {
   }
 
   return (
-    <Root>
+    <Card>
       <Button onClick={runTransaction}>Run Transaction</Button>
       <Status>{status}</Status>
-    </Root>
+    </Card>
   )
 }
