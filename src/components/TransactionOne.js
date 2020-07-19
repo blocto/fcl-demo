@@ -12,27 +12,40 @@ export default function TransactionOne() {
   const runTransaction = async e => {
     e.preventDefault()
     setStatus("Resolving...")
+
+    const block = await fcl.send([
+      fcl.getLatestBlock(),
+    ]);
     
-    const response = await fcl.send([
-      fcl.transaction`
-        transaction {
-          execute {
-            log("A transaction happened")
+    try {
+      const response = await fcl.send([
+        fcl.transaction`
+          transaction {
+            execute {
+              log("A transaction happened")
+            }
           }
-        }
-      `,
-      fcl.proposer(fcl.currentUser().authorization),
-      fcl.payer(fcl.currentUser().authorization),
-    ])
+        `,
+        fcl.proposer(fcl.currentUser().authorization),
+        fcl.payer(fcl.currentUser().authorization),
+        fcl.ref(block.latestBlock.id),
+      ])
 
-    setStatus("Transaction Sent, Waiting for Confirmation")
+      setStatus("Transaction Sent, Waiting for Confirmation")
 
-    const unsub = fcl.tx(response).subscribe(transaction => {
-      if (fcl.tx.isSealed(transaction)) {
-        setStatus("Transaction Confirmed: Is Sealed")
-        unsub()
-      }
-    })
+      const unsub = fcl
+        .tx(response)
+        .subscribe(transaction => {
+          console.log(transaction)
+
+          if (fcl.tx.isSealed(transaction)) {
+            setStatus("Transaction Confirmed: Is Sealed")
+            unsub()
+          }
+        })
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (

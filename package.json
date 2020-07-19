@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@onflow/fcl": "^0.0.33",
+    "@onflow/fcl": "^0.0.37",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev:wallet": "PK=6cf73a50a7cb7c7f55f7db6b5b982395c0ccb1b5d28521f6499a6a0cec0ecbe1 fcl-wallet"
+    "dev:wallet": "PK=dcc3a1c64beb8f8f4b5f63cd56804d3b8234a6d29da7c0b5ed2a0e82c076b8e0 fcl-wallet"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,6 +35,6 @@
     ]
   },
   "devDependencies": {
-    "@onflow/dev-wallet": "^0.0.4"
+    "@onflow/dev-wallet": "^0.0.7"
   }
 }
