@@ -13,11 +13,13 @@ const GetAccount = () => {
   const [data, setData] = useState(null)
   const [addr, setAddr] = useState(null)
 
-  const runGetAccount = async e => {
-    e.preventDefault()
+  const runGetAccount = async (event) => {
+    event.preventDefault()
+
     const response = await fcl.send([
       fcl.getAccount(addr),
     ])
+
     setData(await fcl.decode(response))
   }
 

@@ -17,8 +17,9 @@ transaction {
 export default function TransactionOne() {
   const [status, setStatus] = useState("Not started")
 
-  const runTransaction = async e => {
-    e.preventDefault()
+  const runTransaction = async (event) => {
+    event.preventDefault()
+    
     setStatus("Resolving...")
 
     const blockResponse = await fcl.send([

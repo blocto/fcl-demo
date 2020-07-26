@@ -10,8 +10,8 @@ const Button = styled.button``
 const GetLatestBlock = () => {
   const [data, setData] = useState(null)
 
-  const runGetLatestBlock = async e => {
-    e.preventDefault()
+  const runGetLatestBlock = async (event) => {
+    event.preventDefault()
 
     const response = await fcl.send([
       fcl.getLatestBlock(),

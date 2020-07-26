@@ -11,8 +11,9 @@ const Button = styled.button``
 export default function ScriptOne() {
   const [data, setData] = useState(null)
 
-  const runScript = async e => {
-    e.preventDefault()
+  const runScript = async (event) => {
+    event.preventDefault()
+
     const response = await fcl.send([
       fcl.script`
         pub fun main(): Int {
@@ -20,6 +21,7 @@ export default function ScriptOne() {
         }
       `,
     ])
+    
     setData(await fcl.decode(response))
   }
 

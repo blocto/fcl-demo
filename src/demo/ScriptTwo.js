@@ -15,8 +15,8 @@ const Button = styled.button``
 export default function ScriptTwo() {
   const [data, setData] = useState(null)
 
-  const runScript = async e => {
-    e.preventDefault()
+  const runScript = async (event) => {
+    event.preventDefault()
 
     const response = await fcl.send([
       fcl.script`
