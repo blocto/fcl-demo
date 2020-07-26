@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@onflow/fcl": "^0.0.42",
+    "@onflow/fcl": "^0.0.43",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
@@ -13,7 +13,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "dev:wallet": "PK=6933b0c557a30513adb402be741464601667f898e61017e58a0be94f593e0f6f fcl-wallet"
+    "dev-wallet": "PK=6933b0c557a30513adb402be741464601667f898e61017e58a0be94f593e0f6f fcl-wallet"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,6 +31,6 @@
     ]
   },
   "devDependencies": {
-    "@onflow/dev-wallet": "^0.0.7"
+    "@onflow/dev-wallet": "^0.0.8"
   }
 }
