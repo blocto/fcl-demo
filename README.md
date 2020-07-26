@@ -18,13 +18,21 @@ Run `yarn` at project root.
 Run `flow emulator start` at project root. Flow CLI will use the `./flow.json` file as config to start up the local Flow emulator.  
 The emulator provides a local access node at `http://localhost:8080`
 - **Start FCL dev-wallet**  
-Run `npm run dev-wallet` at project root. Check out `package.json` that this script starts the FCL dev wallet with private key identical in `./flow.json`.  
+Run `yarn run dev-wallet` at project root. Check out `package.json` that this script starts the FCL dev wallet with private key identical in `./flow.json`.  
 The dev wallet is served at `http://localhost:8701`
-- **Start demo webapp**
-Run `npm start` and you will see the demo webapp running at `http://localhost:3000`
+- **Start demo webapp**  
+Run `yarn start` at project root and you will see the demo webapp running at `http://localhost:3000`
 
 ## Diving into Demo
 All the demo cases are located in `./src/demo`. Each component is responsible for one example interaction with FCL. 
+
+- **GetLatestBlock**: Get the information of the latest block produced on Flow blockchain
+- **GetAccount**: Get the account information for any specified account address
+- **ScriptOne**: Executes a simple script (read-only)
+- **ScriptTwo**: Executes a simple script (read-only) but with custom decoder for custom Cadence structure
+- **Authenticate**: Handles sign in/out logic with FCL wallet
+- **UserSnapshot**: Subscribes to `fcl.currentUser()` and shows the connected user account information 
+- **SendTransaction**: Sends a simple transaction to Flow. This requires the signatures from the connected user
 
 ## Switch to Devnet-9
 Optionally, you can use Flow devnet-9 instead of local emulator. To do so, you only have to update the FCL config inside `./src/App.js`:

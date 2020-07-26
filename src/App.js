@@ -8,7 +8,7 @@ import GetLatestBlock from './demo/GetLatestBlock'
 import GetAccount from './demo/GetAccount'
 import ScriptOne from "./demo/ScriptOne"
 import ScriptTwo from './demo/ScriptTwo'
-import CurrentUser from './demo/CurrentUser'
+import Authenticate from './demo/Authenticate'
 import UserSnapshot from './demo/UserSnapshot'
 import SendTransaction from './demo/SendTransaction'
 
@@ -31,7 +31,7 @@ function App() {
 
       <Section>
         <Header>FCL wallet interactions</Header>
-        <CurrentUser />
+        <Authenticate />
         <UserSnapshot />
         <SendTransaction />
       </Section>
