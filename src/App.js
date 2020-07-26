@@ -13,10 +13,8 @@ import UserSnapshot from './demo/UserSnapshot'
 import SendTransaction from './demo/SendTransaction'
 
 fcl.config()
-  .put("challenge.handshake", "http://localhost:8701/flow/authenticate")
-  // .put("challenge.handshake", "http://localhost:8702/authn")
-  // .put("accessNode.api", "http://access-001.devnet9.nodes.onflow.org:8000")
-  // .put("challenge.handshake", "https://flow-wallet-staging.blocto.app/authn")
+  .put("accessNode.api", "http://access-001.devnet9.nodes.onflow.org:8000")
+  .put("challenge.handshake", "https://flow-wallet-staging.blocto.app/authn")
 
 function App() {
   return (
