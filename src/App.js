@@ -10,12 +10,12 @@ import ScriptOne from "./demo/ScriptOne"
 import ScriptTwo from './demo/ScriptTwo'
 import CurrentUser from './demo/CurrentUser'
 import UserSnapshot from './demo/UserSnapshot'
-import TransactionOne from './demo/TransactionOne'
+import SendTransaction from './demo/SendTransaction'
 
 fcl.config()
-  // .put("challenge.handshake", "http://localhost:8701/flow/authenticate")
-  .put("challenge.handshake", "http://localhost:8702/authn")
-  .put("accessNode.api", "http://access-001.devnet9.nodes.onflow.org:8000")
+  .put("challenge.handshake", "http://localhost:8701/flow/authenticate")
+  // .put("challenge.handshake", "http://localhost:8702/authn")
+  // .put("accessNode.api", "http://access-001.devnet9.nodes.onflow.org:8000")
   // .put("challenge.handshake", "https://flow-wallet-staging.blocto.app/authn")
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
         <Header>FCL wallet interactions</Header>
         <CurrentUser />
         <UserSnapshot />
-        <TransactionOne />
+        <SendTransaction />
       </Section>
     </div>
   );

@@ -6,6 +6,13 @@ import Card from '../components/Card'
 import Result from '../components/Result'
 
 const Button = styled.button``
+const simpleTransaction = `
+transaction {
+  execute {
+    log("A transaction happened")
+  }
+}
+`
 
 export default function TransactionOne() {
   const [status, setStatus] = useState("Not started")
@@ -14,8 +21,6 @@ export default function TransactionOne() {
     e.preventDefault()
     setStatus("Resolving...")
 
-    console.log(await fcl.currentUser().snapshot())
-
     const blockResponse = await fcl.send([
       fcl.getLatestBlock(),
     ])
@@ -23,14 +28,8 @@ export default function TransactionOne() {
     const block = await fcl.decode(blockResponse)
     
     try {
-      const response = await fcl.send([
-        fcl.transaction`
-          transaction {
-            execute {
-              log("A transaction happened")
-            }
-          }
-        `,
+      const { transactionId } = await fcl.send([
+        fcl.transaction(simpleTransaction),
         fcl.proposer(fcl.currentUser().authorization),
         fcl.payer(fcl.currentUser().authorization),
         fcl.ref(block.id),
@@ -38,11 +37,9 @@ export default function TransactionOne() {
 
       setStatus("Transaction sent, waiting for confirmation")
 
-      console.log(response)
-
       const unsub = fcl
         .tx({
-          transactionId: response.transactionId
+          transactionId,
         })
         .subscribe(transaction => {
           if (fcl.tx.isSealed(transaction)) {
