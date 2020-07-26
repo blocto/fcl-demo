@@ -1364,12 +1364,12 @@
   resolved "https://registry.yarnpkg.com/@onflow/decode/-/decode-0.0.6.tgz#0a06b5d41ed736d8818d8cf6d955531f7c294349"
   integrity sha512-xQypEDR53Qn4NDWN1cX1fZ5bfQAR37QEc9Mo4xqzL3M13/Py/C3V/E+d77rw1K+ZW/lFYKyffXJKWAGq2qDxWw==
 
-"@onflow/dev-wallet@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@onflow/dev-wallet/-/dev-wallet-0.0.8.tgz#172318573bb2af2422a311f0d451fceaaa569f12"
-  integrity sha512-SKWpLh/l7GJFBg1CABvJgNp+s4PXQbhbyoz6cnIEKvWwrA9Tax+uM0bRorlaL8clGJcBGAMIqPiM+oPcScpG6Q==
+"@onflow/dev-wallet@0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@onflow/dev-wallet/-/dev-wallet-0.0.7.tgz#8bba2240010919a22e739da63ca9d484e40a21f0"
+  integrity sha512-4yhttd7DxQ+zqb8PEGVh5ojkB9i34cFPUUMj+HW9Y3Czku55UIaexu88OFBCbgggkVRiQHuzTADzl5i8+ht4Sw==
   dependencies:
-    "@onflow/fcl" "0.0.43"
+    "@onflow/fcl" "0.0.37"
     "@onflow/fcl-config" "0.0.1"
     "@onflow/types" "0.0.1"
     argon2 "0.26.2"
@@ -1389,6 +1389,13 @@
     sqlite3 "4.1.1"
     uuid "7.0.3"
 
+"@onflow/encode@0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@onflow/encode/-/encode-0.0.3.tgz#2239f301997158e37d3616853bede8ebc1a36bb6"
+  integrity sha512-41FiDyRQdm3LtuLIYYJUVw++7AIM2dJLEKpZXJXOwbyhxps2HPwDbihL6pd/Nv9wwcH74W/AoTRhUsBUcgALqQ==
+  dependencies:
+    rlp "^2.2.4"
+
 "@onflow/encode@0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@onflow/encode/-/encode-0.0.4.tgz#687a76306d292b475efc6321139ab36722a2ea58"
@@ -1401,6 +1408,15 @@
   resolved "https://registry.yarnpkg.com/@onflow/fcl-config/-/fcl-config-0.0.1.tgz#e983f6bdad96a09753ca2000633d7bfed7587527"
   integrity sha512-umvYsAwejX2yGJ5OFxM1dEaKmFEXf+34f4rJfVkfEYztgJqLkUbBkEB8HQsI8M78QUpWkWuNArqwbFvFerBbHA==
 
+"@onflow/fcl@0.0.37":
+  version "0.0.37"
+  resolved "https://registry.yarnpkg.com/@onflow/fcl/-/fcl-0.0.37.tgz#5412c772f6e17853980e6832e0e8fd06ed2847ce"
+  integrity sha512-BgVD0lKgmuKw3MM2cSWSY48WCNJah+YwKIZavuYIzevUAv9XDIpgJmIOMkeBwrC6lSLiU+skVWScujiworwhtA==
+  dependencies:
+    "@onflow/sdk" "0.0.23"
+    "@onflow/types" "0.0.1"
+    queue-microtask "1.1.2"
+
 "@onflow/fcl@0.0.42":
   version "0.0.42"
   resolved "https://registry.yarnpkg.com/@onflow/fcl/-/fcl-0.0.42.tgz#1a006cf2dd55f1940c00653f35b72a7aa8e7f649"
@@ -1408,17 +1424,6 @@
   dependencies:
     "@onflow/config" "0.0.1"
     "@onflow/sdk" "0.0.27"
-    "@onflow/types" "0.0.2"
-    "@onflow/util-actor" "0.0.1"
-    queue-microtask "1.1.2"
-
-"@onflow/fcl@0.0.43":
-  version "0.0.43"
-  resolved "https://registry.yarnpkg.com/@onflow/fcl/-/fcl-0.0.43.tgz#26ab028a4471fc2b4a76ccb89083193e9c9bbcf0"
-  integrity sha512-s+o43M4RaUaVqoBzX6zNu/0WvkKvW5ad/gMxLDHkNdQWXpa/auaZd6+diF/evSDrC0YReagcawDp+e6Hi2XBJg==
-  dependencies:
-    "@onflow/config" "0.0.1"
-    "@onflow/sdk" "0.0.28"
     "@onflow/types" "0.0.2"
     "@onflow/util-actor" "0.0.1"
     queue-microtask "1.1.2"
@@ -1433,6 +1438,14 @@
   resolved "https://registry.yarnpkg.com/@onflow/interaction/-/interaction-0.0.8.tgz#da8a6d6a771eef1b4660d92102cbeef85efc0d2c"
   integrity sha512-7c4/Gn0WqBZDTETuUbMh4HTlUcg2yGwPRSJ0XuFtQMmjBLgsIRWKF/LLirnJTuKJeGBCiBVeZB6wpLDQ/QjJmA==
 
+"@onflow/protobuf@0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@onflow/protobuf/-/protobuf-0.1.3.tgz#eef03e414e65b89d28cdca6917c34c156f70d413"
+  integrity sha512-Ql0qnlmgZYmGYmDGCLsC4ZXureo5EmVh0RidTolgwoj2uUA6aoePSKewo+OKJRzStO4pfNq0n2lY0UB4ZNSzhw==
+  dependencies:
+    "@improbable-eng/grpc-web" "^0.12.0"
+    google-protobuf "^3.11.4"
+
 "@onflow/protobuf@0.1.4":
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/@onflow/protobuf/-/protobuf-0.1.4.tgz#ee0981ff786038d3e098b98173ab5c74633b056b"
@@ -1441,18 +1454,21 @@
     "@improbable-eng/grpc-web" "^0.12.0"
     google-protobuf "^3.11.4"
 
-"@onflow/protobuf@0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@onflow/protobuf/-/protobuf-0.1.5.tgz#1199484b6e7375ecbfb45ffac50edf1837ad0e43"
-  integrity sha512-RqT41U3jrgNJN28kU6FZRAaTBWwtnz8ULeJajJlWKo8N2yFA9Uzal3meiM1BC1zhIJ/eEryhg5EHybI8BkTyVw==
-  dependencies:
-    "@improbable-eng/grpc-web" "^0.12.0"
-    google-protobuf "^3.11.4"
-
 "@onflow/response@0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@onflow/response/-/response-0.0.2.tgz#8cf2aa501a623d4dea9a924b574c8800c854b942"
   integrity sha512-k5UD4nv9F6YAkDn0Gs0F6R2Izr6jekX9sGu6aPbTQCsfyv8kbG8GRhnfcugtwbGfEKmYO4Dj91QtWy246V9sUQ==
+
+"@onflow/sdk@0.0.23":
+  version "0.0.23"
+  resolved "https://registry.yarnpkg.com/@onflow/sdk/-/sdk-0.0.23.tgz#3e2c132d16782c379b5a7fd769677825c0ec91cb"
+  integrity sha512-9zhcDWfFcjbEmCqwsZbvu6YBdGlLtY1nLQthyj5Rw0WqQrBdSXZsIqIF1AtkayKLbYAjtK5HZaPI1KXV9nfuTA==
+  dependencies:
+    "@onflow/decode" "0.0.6"
+    "@onflow/encode" "0.0.3"
+    "@onflow/interaction" "0.0.7"
+    "@onflow/send" "0.0.12"
+    "@qvvg/templar" "0.0.1"
 
 "@onflow/sdk@0.0.27":
   version "0.0.27"
@@ -1465,16 +1481,16 @@
     "@onflow/send" "0.0.14"
     "@qvvg/templar" "0.0.1"
 
-"@onflow/sdk@0.0.28":
-  version "0.0.28"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk/-/sdk-0.0.28.tgz#4b4cc0ceebb6584863f9e2b514df1b7925c9b3ae"
-  integrity sha512-FlNFWLv1mhlgGf8bKrPrAbBNEu8fNEhNokhe5We+7paOTTqKm1qw7WZ1+hmQN0rc98uVs5mLrrQlxaqeK57GwA==
+"@onflow/send@0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@onflow/send/-/send-0.0.12.tgz#cafec535d53e6dcef1c7addc9c052307f90a0fd6"
+  integrity sha512-lo0EMwDnkFSuxKmFnnYuUzpjfqSk2Iiyh9AumqqwiIzjpOn2+kVftHTz0mv7x2jQ2g8HdKareizSXSrbtC1vBA==
   dependencies:
-    "@onflow/decode" "0.0.6"
-    "@onflow/encode" "0.0.4"
-    "@onflow/interaction" "0.0.8"
-    "@onflow/send" "0.0.15"
-    "@qvvg/templar" "0.0.1"
+    "@improbable-eng/grpc-web" "0.12.0"
+    "@improbable-eng/grpc-web-node-http-transport" "0.12.0"
+    "@onflow/interaction" "0.0.7"
+    "@onflow/protobuf" "0.1.3"
+    "@onflow/response" "0.0.2"
 
 "@onflow/send@0.0.14":
   version "0.0.14"
@@ -1485,17 +1501,6 @@
     "@improbable-eng/grpc-web-node-http-transport" "0.12.0"
     "@onflow/interaction" "0.0.7"
     "@onflow/protobuf" "0.1.4"
-    "@onflow/response" "0.0.2"
-
-"@onflow/send@0.0.15":
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/@onflow/send/-/send-0.0.15.tgz#28f98dff72e153ed75b105f3cc283d9abeda57c1"
-  integrity sha512-lhU9TP5ZPzlBV5EGh5R8ujl9rLgWe49Fet7IEhHtY8bK/hkbLXXh8aViMuBCLK0CnRitpQ6R1VAY4Lc75mxVcg==
-  dependencies:
-    "@improbable-eng/grpc-web" "0.12.0"
-    "@improbable-eng/grpc-web-node-http-transport" "0.12.0"
-    "@onflow/interaction" "0.0.7"
-    "@onflow/protobuf" "0.1.5"
     "@onflow/response" "0.0.2"
 
 "@onflow/types@0.0.1":

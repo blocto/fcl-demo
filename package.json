@@ -31,6 +31,6 @@
     ]
   },
   "devDependencies": {
-    "@onflow/dev-wallet": "^0.0.8"
+    "@onflow/dev-wallet": "0.0.7"
   }
 }
