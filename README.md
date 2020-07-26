@@ -10,10 +10,18 @@ In order for this demo to work, you have to setup the dependencies first:
 
 - **Install Flow CLI** [Here](https://github.com/onflow/flow/blob/master/docs/cli.md)  
 The Flow CLI is a command-line interface that provides useful utilities for building Flow applications. The tool we need in this demo is *Flow emulator*, a local emulator of Flow blockchain.
-- **Install project dependencies** with `yarn` or `yarn install`.
+- **Install project dependencies**  
+Run `yarn` at project root.
 
 ### Starting the services
-
+- **Start Flow emulator**  
+Run `flow emulator start` at project root. Flow CLI will use the `./flow.json` file as config to start up the local Flow emulator.  
+The emulator provides a local access node at `http://localhost:8080`
+- **Start FCL dev-wallet**  
+Run `npm run dev-wallet` at project root. Check out `package.json` that this script starts the FCL dev wallet with private key identical in `./flow.json`.  
+The dev wallet is served at `http://localhost:8701`
+- **Start demo webapp**
+Run `npm start` and you will see the demo webapp running at `http://localhost:3000`
 
 ## Diving into Demo
 All the demo cases are located in `./src/demo`. Each component is responsible for one example interaction with FCL. 
