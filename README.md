@@ -43,7 +43,7 @@ fcl.config()
 ```
 This will use a devnet9 access node instead of local emulator, and *Blocto devnet wallet* instead of local dev-wallet.
 
-Note that you also have to lock your `@onflow/fcl` version to `0.0.42` because there are breaking changes to the access node API and devnet-9 is using the older spec.
+Note that you also have to lock your `@onflow/fcl` version to `0.0.42` and reinstall dependencies with `yarn` because there are breaking changes to the access node API and devnet-9 is using the older spec.
 
 ## Contact
 If you encounter any questions while trying out Flow, please go to [Flow Discord Server](https://discord.gg/SEJtd32), where you can find other developers to help you out.
