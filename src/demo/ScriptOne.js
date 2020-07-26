@@ -2,11 +2,11 @@ import React, {useState} from "react"
 import styled from "styled-components"
 import * as fcl from "@onflow/fcl"
 
-import Card from './Card'
+import Card from '../components/Card'
+import Header from '../components/Header'
+import Result from '../components/Result'
 
-const Header = styled.div``
 const Button = styled.button``
-const Results = styled.pre``
 
 export default function ScriptOne() {
   const [data, setData] = useState(null)
@@ -25,9 +25,9 @@ export default function ScriptOne() {
 
   return (
     <Card>
-      <Header>Script One</Header>
+      <Header>run script</Header>
       <Button onClick={runScript}>Run Script</Button>
-      {data && <Results>{JSON.stringify(data, null, 2)}</Results>}
+      {data && <Result>{JSON.stringify(data, null, 2)}</Result>}
     </Card>
   )
 }

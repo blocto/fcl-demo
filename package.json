@@ -1,12 +1,9 @@
 {
-  "name": "flow-demo",
+  "name": "fcl-demo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@onflow/fcl": "^0.0.37",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "@onflow/fcl": "^0.0.42",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
@@ -15,9 +12,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev:wallet": "PK=dcc3a1c64beb8f8f4b5f63cd56804d3b8234a6d29da7c0b5ed2a0e82c076b8e0 fcl-wallet"
+    "dev:wallet": "PK=6933b0c557a30513adb402be741464601667f898e61017e58a0be94f593e0f6f fcl-wallet"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -2,20 +2,25 @@ import React, {useState} from "react"
 import styled from "styled-components"
 import * as fcl from "@onflow/fcl"
 
-import Card from './Card'
+import Card from '../components/Card'
+import Result from '../components/Result'
 
 const Button = styled.button``
-const Status = styled.pre``
 
 export default function TransactionOne() {
-  const [status, setStatus] = useState("Not Started")
+  const [status, setStatus] = useState("Not started")
+
   const runTransaction = async e => {
     e.preventDefault()
     setStatus("Resolving...")
 
-    const block = await fcl.send([
+    console.log(await fcl.currentUser().snapshot())
+
+    const blockResponse = await fcl.send([
       fcl.getLatestBlock(),
-    ]);
+    ])
+
+    const block = await fcl.decode(blockResponse)
     
     try {
       const response = await fcl.send([
@@ -28,30 +33,33 @@ export default function TransactionOne() {
         `,
         fcl.proposer(fcl.currentUser().authorization),
         fcl.payer(fcl.currentUser().authorization),
-        fcl.ref(block.latestBlock.id),
+        fcl.ref(block.id),
       ])
 
-      setStatus("Transaction Sent, Waiting for Confirmation")
+      setStatus("Transaction sent, waiting for confirmation")
+
+      console.log(response)
 
       const unsub = fcl
-        .tx(response)
+        .tx({
+          transactionId: response.transactionId
+        })
         .subscribe(transaction => {
-          console.log(transaction)
-
           if (fcl.tx.isSealed(transaction)) {
-            setStatus("Transaction Confirmed: Is Sealed")
+            setStatus("Transaction is Sealed")
             unsub()
           }
         })
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      setStatus("Transaction failed")
     }
   }
 
   return (
     <Card>
       <Button onClick={runTransaction}>Run Transaction</Button>
-      <Status>{status}</Status>
+      <Result>{status}</Result>
     </Card>
   )
 }

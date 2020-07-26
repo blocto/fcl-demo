@@ -2,17 +2,22 @@ import React, {useState} from "react"
 import styled from "styled-components"
 import * as fcl from "@onflow/fcl"
 
-import Card from './Card'
+import Card from '../components/Card'
+import Header from '../components/Header'
+import Result from '../components/Result'
+import Point from '../components/Point'
 
-const Header = styled.div``
+fcl.config()
+  .put("decoder.SomeStruct", data => new Point(data))
+
 const Button = styled.button``
-const Results = styled.pre``
 
 export default function ScriptTwo() {
   const [data, setData] = useState(null)
 
   const runScript = async e => {
     e.preventDefault()
+
     const response = await fcl.send([
       fcl.script`
         pub struct SomeStruct {
@@ -30,16 +35,24 @@ export default function ScriptTwo() {
         }
       `,
     ])
+    
     setData(await fcl.decode(response))
   }
 
   return (
     <Card>
-      <Header>Script Two</Header>
+      <Header>run script - with custom decoder</Header>
       <Button onClick={runScript}>Run Script</Button>
-      {data && <Results>{JSON.stringify(data, null, 2)}</Results>}
-      <span>{data && data !== null && data[0].constructor.name} 1 </span> {/* Point 1 */}
-      <span>{data && data !== null && data[1].constructor.name} 2 </span> {/* Point 1 */}
+      
+      {data && data !== null && (
+        data.map((item, index) => (
+          <Result key={index}>
+            {item.constructor.name} {index}
+            <br />
+            {JSON.stringify(item, null, 2)}
+          </Result>
+        ))
+      )}
     </Card>
   )
 }
