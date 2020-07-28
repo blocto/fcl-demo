@@ -1,7 +1,6 @@
-# Flow Client Library demonstration
-You can find an online demo [Here](http://34.71.72.144/) 
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Flow Client Library Demo
+This project demonstrates how to use FCL in your webapp and interact with Flow and wallet providers.
+You can find an online demo [Here](http://fcl-demo.portto.io/) 
 
 ## Getting Started
 
@@ -45,3 +44,7 @@ This will use a testnet access node instead of local emulator, and *Blocto testn
 
 ## Contact
 If you encounter any questions while trying out Flow, please go to [Flow Discord Server](https://discord.gg/SEJtd32), where you can find other developers to help you out.
+
+## Acknowledgement
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- A lot of the examples were taken from the tutorial in [FCL](https://github.com/onflow/flow-js-sdk/tree/master/packages/fcl)
