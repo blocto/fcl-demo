@@ -17,7 +17,7 @@ const SendTransaction = () => {
   const [status, setStatus] = useState("Not started")
   const [transaction, setTransaction] = useState(null)
 
-  const runTransaction = async (event) => {
+  const sendTransaction = async (event) => {
     event.preventDefault()
     
     setStatus("Resolving...")
@@ -39,9 +39,7 @@ const SendTransaction = () => {
       setStatus("Transaction sent, waiting for confirmation")
 
       const unsub = fcl
-        .tx({
-          transactionId,
-        })
+        .tx({ transactionId })
         .subscribe(transaction => {
           setTransaction(transaction)
 
@@ -62,8 +60,8 @@ const SendTransaction = () => {
 
       <Code>{simpleTransaction}</Code>
 
-      <button onClick={runTransaction}>
-        Run Transaction
+      <button onClick={sendTransaction}>
+        Send
       </button>
 
       <Code>Status: {status}</Code>

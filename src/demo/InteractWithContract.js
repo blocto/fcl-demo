@@ -10,7 +10,7 @@ import HelloWorld from 0x${address}
 
 transaction {
   execute {
-    log(HelloWorld.hello(message: "Hello from visitor"))
+    HelloWorld.hello(message: "Hello from visitor")
   }
 }
 `
