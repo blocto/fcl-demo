@@ -15,10 +15,10 @@ Run `yarn` at project root.
 
 ### Starting the services
 - **Start Flow emulator**  
-Run `flow emulator start` at project root. Flow CLI will use the `./flow.json` file as config to start up the local Flow emulator.  
+Run `flow emulator start` at project root. Flow CLI uses `./flow.json` as config to start up the local Flow emulator.  
 The emulator provides a local access node at `http://localhost:8080`
 - **Start FCL dev-wallet**  
-Run `yarn run dev-wallet` at project root. Check out `package.json` that this script starts the FCL dev wallet with private key identical in `./flow.json`.  
+Run `yarn run dev-wallet` at project root, which starts FCL dev wallet with private key identical to the one defined in `./flow.json`.  
 The dev wallet is served at `http://localhost:8701`
 - **Start demo webapp**  
 Run `yarn start` at project root and you will see the demo webapp running at `http://localhost:3000`
@@ -34,14 +34,14 @@ All the demo cases are located in `./src/demo`. Each component is responsible fo
 - **UserInfo**: Subscribes to `fcl.currentUser()` and shows the connected user account information 
 - **SendTransaction**: Sends a simple transaction to Flow. This requires the signatures from the connected user
 
-## Switch to Testnet
-Optionally, you can use Flow testnet instead of local emulator. To do so, you only have to update the FCL config inside `./src/App.js`:
+## Switch to Testnet (devnet-9)
+You can also test on Flow testnet instead of local emulator. To do so, simply update the FCL config inside `./src/App.js`:
 ```
 fcl.config()
   .put("accessNode.api", "https://access-testnet.onflow.org")
   .put("challenge.handshake", "https://flow-wallet-staging.blocto.app/authn")
 ```
-This will use a testnet access node instead of local emulator, and *Blocto devnet wallet* instead of local dev-wallet.
+This will use a testnet access node instead of local emulator, and *Blocto testnet wallet* instead of local dev-wallet.
 
 ## Contact
 If you encounter any questions while trying out Flow, please go to [Flow Discord Server](https://discord.gg/SEJtd32), where you can find other developers to help you out.
