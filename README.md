@@ -32,6 +32,8 @@ All the demo cases are located in `./src/demo`. Each component is responsible fo
 - **Authenticate**: Handles sign in/out logic with FCL wallet
 - **UserInfo**: Subscribes to `fcl.currentUser()` and shows the connected user account information 
 - **SendTransaction**: Sends a simple transaction to Flow. This requires the signatures from the connected user
+- **DeployContract**: Deploys a contract to the current user's code storage
+- **InteractWithContract**: Sends a simple transaction that executes a contract method. This requires the signatures from the connected user
 
 ## Switch to Testnet (devnet-9)
 You can also test on Flow testnet instead of local emulator. To do so, simply update the FCL config inside `./src/config.js`:

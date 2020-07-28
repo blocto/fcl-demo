@@ -46,7 +46,7 @@ export default function ScriptTwo() {
 
       <button onClick={runScript}>Run Script</button>
       
-      {data && data !== null && (
+      {data && (
         <Code>
           {data.map((item, index) => (
             <div key={index}>

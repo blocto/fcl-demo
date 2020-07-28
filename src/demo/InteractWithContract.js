@@ -5,17 +5,26 @@ import Card from '../components/Card'
 import Header from '../components/Header'
 import Code from '../components/Code'
 
-const simpleTransaction = `\
+const simpleTransaction = address => `\
+import HelloWorld from 0x${address}
+
 transaction {
   execute {
-    log("A transaction happened")
+    log(HelloWorld.hello(message: "Hello from visitor"))
   }
 }
 `
 
-const SendTransaction = () => {
+const InteractWithContract = () => {
+  const [addr, setAddr] = useState(null)
   const [status, setStatus] = useState("Not started")
   const [transaction, setTransaction] = useState(null)
+
+  const updateAddr = (event) => {
+    event.preventDefault();
+
+    setAddr(event.target.value)
+  }
 
   const runTransaction = async (event) => {
     event.preventDefault()
@@ -30,7 +39,7 @@ const SendTransaction = () => {
     
     try {
       const { transactionId } = await fcl.send([
-        fcl.transaction(simpleTransaction),
+        fcl.transaction(simpleTransaction(addr)),
         fcl.proposer(fcl.currentUser().authorization),
         fcl.payer(fcl.currentUser().authorization),
         fcl.ref(block.id),
@@ -58,9 +67,14 @@ const SendTransaction = () => {
 
   return (
     <Card>
-      <Header>send transaction</Header>
+      <Header>interact with contract</Header>
 
-      <Code>{simpleTransaction}</Code>
+      <input
+        placeholder="Enter Contract address"
+        onChange={updateAddr}
+      />
+
+      <Code>{simpleTransaction(addr || '')}</Code>
 
       <button onClick={runTransaction}>
         Run Transaction
@@ -73,4 +87,4 @@ const SendTransaction = () => {
   )
 }
 
-export default SendTransaction
+export default InteractWithContract

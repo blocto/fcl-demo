@@ -32,7 +32,11 @@ export default function ScriptOne() {
       
       <button onClick={runScript}>Run Script</button>
 
-      {data && <Code>{JSON.stringify(data, null, 2)}</Code>}
+      {data && (
+        <Code>
+          {JSON.stringify(data, null, 2)}
+        </Code>
+      )}
     </Card>
   )
 }

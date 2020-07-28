@@ -19,8 +19,10 @@ const GetAccount = () => {
     setData(await fcl.decode(response))
   }
 
-  const updateAddr = async e => {
-    setAddr(e.target.value)
+  const updateAddr = (event) => {
+    event.preventDefault();
+
+    setAddr(event.target.value)
   }
 
   return (
