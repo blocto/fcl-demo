@@ -5,7 +5,7 @@ import Card from '../components/Card'
 import Header from '../components/Header'
 import Result from '../components/Result'
 
-const UserSnapshot = () => {
+const UserInfo = () => {
   const [user, setUser] = useState(null)
 
   useEffect(() =>
@@ -23,4 +23,4 @@ const UserSnapshot = () => {
   )
 }
 
-export default UserSnapshot
+export default UserInfo

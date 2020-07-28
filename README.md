@@ -29,21 +29,19 @@ All the demo cases are located in `./src/demo`. Each component is responsible fo
 - **GetLatestBlock**: Get the information of the latest block produced on Flow blockchain
 - **GetAccount**: Get the account information for any specified account address
 - **ScriptOne**: Executes a simple script (read-only)
-- **ScriptTwo**: Executes a simple script (read-only) but with custom decoder for custom Cadence structure
+- **ScriptTwo**: Executes a simple script (read-only) but with custom decoder for custom Cadence data structure
 - **Authenticate**: Handles sign in/out logic with FCL wallet
-- **UserSnapshot**: Subscribes to `fcl.currentUser()` and shows the connected user account information 
+- **UserInfo**: Subscribes to `fcl.currentUser()` and shows the connected user account information 
 - **SendTransaction**: Sends a simple transaction to Flow. This requires the signatures from the connected user
 
-## Switch to Devnet-9
-Optionally, you can use Flow devnet-9 instead of local emulator. To do so, you only have to update the FCL config inside `./src/App.js`:
+## Switch to Testnet
+Optionally, you can use Flow testnet instead of local emulator. To do so, you only have to update the FCL config inside `./src/App.js`:
 ```
 fcl.config()
-  .put("accessNode.api", "http://access-001.devnet9.nodes.onflow.org:8000")
+  .put("accessNode.api", "https://access-testnet.onflow.org")
   .put("challenge.handshake", "https://flow-wallet-staging.blocto.app/authn")
 ```
-This will use a devnet9 access node instead of local emulator, and *Blocto devnet wallet* instead of local dev-wallet.
-
-Note that you also have to lock your `@onflow/fcl` version to `0.0.42` and reinstall dependencies with `yarn` because there are breaking changes to the access node API and devnet-9 is using the older spec.
+This will use a testnet access node instead of local emulator, and *Blocto devnet wallet* instead of local dev-wallet.
 
 ## Contact
 If you encounter any questions while trying out Flow, please go to [Flow Discord Server](https://discord.gg/SEJtd32), where you can find other developers to help you out.
