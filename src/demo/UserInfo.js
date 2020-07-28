@@ -3,7 +3,7 @@ import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
 import Header from '../components/Header'
-import Result from '../components/Code'
+import Code from '../components/Code'
 
 const UserInfo = () => {
   const [user, setUser] = useState(null)
@@ -18,7 +18,7 @@ const UserInfo = () => {
     <Card>
       <Header>User information</Header>
       
-      {user && <Result>{JSON.stringify(user, null, 2)}</Result>}
+      {user && <Code>{JSON.stringify(user, null, 2)}</Code>}
     </Card>
   )
 }

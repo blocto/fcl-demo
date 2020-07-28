@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
-import Result from '../components/Code'
+import Code from '../components/Code'
 
 const GetLatestBlock = () => {
   const [data, setData] = useState(null)
@@ -23,7 +23,7 @@ const GetLatestBlock = () => {
         Get Latest Block
       </button>
       
-      {data && <Result>{JSON.stringify(data, null, 2)}</Result>}
+      {data && <Code>{JSON.stringify(data, null, 2)}</Code>}
     </Card>
   )
 }

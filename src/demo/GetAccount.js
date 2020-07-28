@@ -3,7 +3,7 @@ import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
 import Header from '../components/Header'
-import Result from '../components/Code'
+import Code from '../components/Code'
 
 const GetAccount = () => {
   const [data, setData] = useState(null)
@@ -35,7 +35,7 @@ const GetAccount = () => {
         Lookup Account
       </button>
       
-      {data && <Result>{JSON.stringify(data, null, 2)}</Result>}
+      {data && <Code>{JSON.stringify(data, null, 2)}</Code>}
     </Card>
   )
 }
