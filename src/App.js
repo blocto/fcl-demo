@@ -1,5 +1,4 @@
 import React from 'react';
-import * as fcl from "@onflow/fcl"
 
 import Section from './components/Section'
 import Header from './components/Header'
@@ -11,11 +10,6 @@ import ScriptTwo from './demo/ScriptTwo'
 import Authenticate from './demo/Authenticate'
 import UserInfo from './demo/UserInfo'
 import SendTransaction from './demo/SendTransaction'
-
-fcl.config()
-  .put("challenge.handshake", "http://localhost:8701/flow/authenticate")
-  // .put("accessNode.api", "https://access-testnet.onflow.org")
-  // .put("challenge.handshake", "https://flow-wallet-staging.blocto.app/authn")
 
 function App() {
   return (

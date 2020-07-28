@@ -35,7 +35,7 @@ All the demo cases are located in `./src/demo`. Each component is responsible fo
 - **SendTransaction**: Sends a simple transaction to Flow. This requires the signatures from the connected user
 
 ## Switch to Testnet (devnet-9)
-You can also test on Flow testnet instead of local emulator. To do so, simply update the FCL config inside `./src/App.js`:
+You can also test on Flow testnet instead of local emulator. To do so, simply update the FCL config inside `./src/config.js`:
 ```
 fcl.config()
   .put("accessNode.api", "https://access-testnet.onflow.org")

@@ -1,16 +1,29 @@
 import React, {useState} from "react"
-import styled from "styled-components"
 import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
 import Header from '../components/Header'
-import Result from '../components/Result'
-import Point from '../components/Point'
+import Code from '../components/Code'
+import Point from '../model/Point'
+
+const scriptTwo = `\
+pub struct SomeStruct {
+  pub var x: Int
+  pub var y: Int
+
+  init(x: Int, y: Int) {
+    self.x = x
+    self.y = y
+  }
+}
+
+pub fun main(): [SomeStruct] {
+  return [SomeStruct(x: 1, y: 2), SomeStruct(x: 3, y: 4)]
+}
+`;
 
 fcl.config()
   .put("decoder.SomeStruct", data => new Point(data))
-
-const Button = styled.button``
 
 export default function ScriptTwo() {
   const [data, setData] = useState(null)
@@ -19,21 +32,7 @@ export default function ScriptTwo() {
     event.preventDefault()
 
     const response = await fcl.send([
-      fcl.script`
-        pub struct SomeStruct {
-          pub var x: Int
-          pub var y: Int
-
-          init(x: Int, y: Int) {
-            self.x = x
-            self.y = y
-          }
-        }
-
-        pub fun main(): [SomeStruct] {
-          return [SomeStruct(x: 1, y: 2), SomeStruct(x: 3, y: 4)]
-        }
-      `,
+      fcl.script(scriptTwo),
     ])
     
     setData(await fcl.decode(response))
@@ -42,16 +41,23 @@ export default function ScriptTwo() {
   return (
     <Card>
       <Header>run script - with custom decoder</Header>
-      <Button onClick={runScript}>Run Script</Button>
+
+      <Code>{scriptTwo}</Code>
+
+      <button onClick={runScript}>Run Script</button>
       
       {data && data !== null && (
-        data.map((item, index) => (
-          <Result key={index}>
-            {item.constructor.name} {index}
-            <br />
-            {JSON.stringify(item, null, 2)}
-          </Result>
-        ))
+        <Code>
+          {data.map((item, index) => (
+            <div key={index}>
+              {item.constructor.name} {index}
+              <br />
+              {JSON.stringify(item, null, 2)}
+              <br />
+              --
+            </div>
+          ))}
+        </Code>
       )}
     </Card>
   )

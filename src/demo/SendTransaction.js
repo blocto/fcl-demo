@@ -1,12 +1,10 @@
 import React, {useState} from "react"
-import styled from "styled-components"
 import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
-import Result from '../components/Result'
+import Code from '../components/Code'
 
-const Button = styled.button``
-const simpleTransaction = `
+const simpleTransaction = `\
 transaction {
   execute {
     log("A transaction happened")
@@ -56,8 +54,11 @@ export default function TransactionOne() {
 
   return (
     <Card>
-      <Button onClick={runTransaction}>Run Transaction</Button>
-      <Result>{status}</Result>
+      <button onClick={runTransaction}>
+        Run Transaction
+      </button>
+
+      <Code>{status}</Code>
     </Card>
   )
 }

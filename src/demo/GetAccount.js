@@ -1,13 +1,9 @@
 import React, {useState} from "react"
-import styled from "styled-components"
 import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
 import Header from '../components/Header'
-import Result from '../components/Result'
-
-const Input = styled.input``
-const Button = styled.button``
+import Result from '../components/Code'
 
 const GetAccount = () => {
   const [data, setData] = useState(null)
@@ -31,11 +27,13 @@ const GetAccount = () => {
     <Card>
       <Header>get account</Header>
 
-      <Input
+      <input
         placeholder="Enter Flow address"
         onChange={updateAddr}
       />
-      <Button onClick={runGetAccount}>Lookup Account</Button>
+      <button onClick={runGetAccount}>
+        Lookup Account
+      </button>
       
       {data && <Result>{JSON.stringify(data, null, 2)}</Result>}
     </Card>

@@ -11,16 +11,22 @@ const Img = styled.img`
   width: 50px;
   height: 50px;
 `
-const Info = styled.div``
-const Button = styled.button``
 
-const SignInOutButton = ({ user }) => {
-  const isLoggedIn = user && user.loggedIn;
+const SignInOutButton = ({ user: { loggedIn } }) => {
+  const signInOrOut = async (event) => {
+    event.preventDefault()
+
+    if (loggedIn) {
+      fcl.unauthenticate()
+    } else {
+      fcl.authenticate()
+    }
+  }
 
   return (
-    <Button onClick={isLoggedIn ? fcl.unauthenticate : fcl.authenticate}>
-      {isLoggedIn ? 'Sign Out' : 'Sign In/Up'}
-    </Button>
+    <button onClick={signInOrOut}>
+      {loggedIn ? 'Sign Out' : 'Sign In/Up'}
+    </button>
   )
 }
 
@@ -28,17 +34,17 @@ const UserProfile = ({ user }) => (
   <Profile>
     {user.identity.avatar && <Img src={user.identity.avatar} />}
 
-    <Info>
+    <div>
       <b>Name</b>: {user.identity.name || "Anonymous"}
-    </Info>
-    <Info>
+    </div>
+    <div>
       <b>Address</b>: {user.addr || ""}
-    </Info>
+    </div>
   </Profile>
 )
 
 const CurrentUser = () => {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState({})
 
   useEffect(() =>
     fcl
@@ -48,7 +54,7 @@ const CurrentUser = () => {
 
   return (
     <Card>
-      {user && user.loggedIn && <UserProfile user={user} />}
+      {user.loggedIn && <UserProfile user={user} />}
 
       <SignInOutButton user={user} />
     </Card>

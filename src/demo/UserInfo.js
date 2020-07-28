@@ -3,7 +3,7 @@ import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
 import Header from '../components/Header'
-import Result from '../components/Result'
+import Result from '../components/Code'
 
 const UserInfo = () => {
   const [user, setUser] = useState(null)

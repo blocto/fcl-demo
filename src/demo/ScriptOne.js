@@ -1,12 +1,15 @@
 import React, {useState} from "react"
-import styled from "styled-components"
 import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
 import Header from '../components/Header'
-import Result from '../components/Result'
+import Code from '../components/Code'
 
-const Button = styled.button``
+const scriptOne = `\
+pub fun main(): Int {
+  return 42 + 6
+}
+`
 
 export default function ScriptOne() {
   const [data, setData] = useState(null)
@@ -15,11 +18,7 @@ export default function ScriptOne() {
     event.preventDefault()
 
     const response = await fcl.send([
-      fcl.script`
-        pub fun main(): Int {
-          return 42 + 6
-        }
-      `,
+      fcl.script(scriptOne),
     ])
     
     setData(await fcl.decode(response))
@@ -28,8 +27,12 @@ export default function ScriptOne() {
   return (
     <Card>
       <Header>run script</Header>
-      <Button onClick={runScript}>Run Script</Button>
-      {data && <Result>{JSON.stringify(data, null, 2)}</Result>}
+      
+      <Code>{scriptOne}</Code>
+      
+      <button onClick={runScript}>Run Script</button>
+
+      {data && <Code>{JSON.stringify(data, null, 2)}</Code>}
     </Card>
   )
 }

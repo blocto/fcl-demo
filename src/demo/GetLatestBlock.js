@@ -1,11 +1,8 @@
 import React, {useState} from "react"
-import styled from "styled-components"
 import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
-import Result from '../components/Result'
-
-const Button = styled.button``
+import Result from '../components/Code'
 
 const GetLatestBlock = () => {
   const [data, setData] = useState(null)
@@ -22,7 +19,9 @@ const GetLatestBlock = () => {
 
   return (
     <Card>
-      <Button onClick={runGetLatestBlock}>Get Latest Block</Button>
+      <button onClick={runGetLatestBlock}>
+        Get Latest Block
+      </button>
       
       {data && <Result>{JSON.stringify(data, null, 2)}</Result>}
     </Card>
