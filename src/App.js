@@ -16,6 +16,7 @@ import InteractWithContract from './demo/InteractWithContract'
 
 const Wrapper = styled.div`
   font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
 `;
 
 function App() {
