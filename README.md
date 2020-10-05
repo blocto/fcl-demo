@@ -40,7 +40,7 @@ You can also test on Flow testnet instead of local emulator. To do so, simply up
 ```
 fcl.config()
   .put("accessNode.api", "https://access-testnet.onflow.org")
-  .put("challenge.handshake", "https://flow-wallet-staging.blocto.app/authn")
+  .put("challenge.handshake", "https://flow-wallet-testnet.blocto.app/authn")
 ```
 This will use a testnet access node instead of local emulator, and *Blocto testnet wallet* instead of local dev-wallet.
 
