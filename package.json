@@ -16,7 +16,7 @@
     "dev-wallet": "PK=6933b0c557a30513adb402be741464601667f898e61017e58a0be94f593e0f6f fcl-wallet"
   },
   "devDependencies": {
-    "@onflow/dev-wallet": "^0.0.8"
+    "@onflow/dev-wallet": "^0.0.10"
   },
   "browserslist": {
     "production": [
