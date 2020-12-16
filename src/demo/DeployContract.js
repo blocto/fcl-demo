@@ -9,7 +9,7 @@ import Code from '../components/Code'
 const deployTransaction = `\
 transaction(code: String) {
   prepare(acct: AuthAccount) {
-    acct.setCode(code.decodeHex())
+    acct.contracts.add(name: "HelloWorld", code: code.decodeHex())
   }
 }
 `

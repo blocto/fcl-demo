@@ -6,7 +6,7 @@ import Header from '../components/Header'
 import Code from '../components/Code'
 
 const simpleTransaction = address => `\
-import HelloWorld from 0x${address}
+import HelloWorld from 0x${address.replace('0x', '')}
 
 transaction {
   execute {
