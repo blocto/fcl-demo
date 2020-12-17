@@ -13,7 +13,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "dev-wallet": "PK=6933b0c557a30513adb402be741464601667f898e61017e58a0be94f593e0f6f fcl-wallet"
+    "dev-wallet": "PK=bf9db4706c2fdb9011ee7e170ccac492f05427b96ab41d8bf2d8c58443704b76 fcl-wallet"
   },
   "devDependencies": {
     "@onflow/dev-wallet": "^0.0.10"
