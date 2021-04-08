@@ -11,6 +11,7 @@ import ScriptTwo from './demo/ScriptTwo'
 import Authenticate from './demo/Authenticate'
 import UserInfo from './demo/UserInfo'
 import SendTransaction from './demo/SendTransaction'
+import SendFUSD from './demo/SendFUSD'
 import DeployContract from './demo/DeployContract'
 import InteractWithContract from './demo/InteractWithContract'
 
@@ -35,6 +36,7 @@ function App() {
         <Authenticate />
         <UserInfo />
         <SendTransaction />
+        <SendFUSD />
         <DeployContract />
         <InteractWithContract />
       </Section>
