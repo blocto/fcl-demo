@@ -1422,10 +1422,10 @@
     "@onflow/util-actor" "0.0.2"
     queue-microtask "1.1.2"
 
-"@onflow/fcl@0.0.67-alpha.43":
-  version "0.0.67-alpha.43"
-  resolved "https://registry.yarnpkg.com/@onflow/fcl/-/fcl-0.0.67-alpha.43.tgz#c4b12bffed8b727cb59506b70b59aab049b47128"
-  integrity sha512-a+pX5Nn0yFoIyz7W3r8CfKgOjlt2h91q87lJfsUjdOFQaWpbknIc5SGUuZxvQLdEc9yN9utYcp+SEGWJyQd7IA==
+"@onflow/fcl@^0.0.67":
+  version "0.0.67"
+  resolved "https://registry.yarnpkg.com/@onflow/fcl/-/fcl-0.0.67.tgz#9a14b22e11345f04889434ab668f52e91072342c"
+  integrity sha512-A/1YD+eDx6+mjqENR0bvWSPPww99LYDlLM9jzFjxIyju58paHPCMA7Rav9nQVHfxWMCRAnkbK0yPanUPEyeaww==
   dependencies:
     "@onflow/config" "0.0.2"
     "@onflow/interaction" "0.0.10"
