@@ -69,6 +69,10 @@ const SendFUSD = () => {
 
   useEffect(() => {
     const fetchData = async () => {  
+      if (!user || !user.addr) {
+        return 
+      }
+
       const response = await fcl.send([
         fcl.script(checkFusdAmount),
         fcl.args([fcl.arg(user.addr, t.Address)]),
@@ -78,7 +82,7 @@ const SendFUSD = () => {
       setBalance(balance)
     }
 
-    if (user) {
+    if (user && user.addr) {
       fetchData()
     }
   }, [user])
