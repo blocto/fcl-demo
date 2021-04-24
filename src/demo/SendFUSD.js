@@ -73,13 +73,18 @@ const SendFUSD = () => {
         return 
       }
 
-      const response = await fcl.send([
-        fcl.script(checkFusdAmount),
-        fcl.args([fcl.arg(user.addr, t.Address)]),
-      ]);
-  
-      const balance = await fcl.decode(response);
-      setBalance(balance)
+      try { 
+        const response = await fcl.send([
+          fcl.script(checkFusdAmount),
+          fcl.args([fcl.arg(user.addr, t.Address)]),
+        ]);
+    
+        const balance = await fcl.decode(response);
+
+        setBalance(balance)
+      } catch (error) {
+        setBalance(0.0)
+      }
     }
 
     if (user && user.addr) {
