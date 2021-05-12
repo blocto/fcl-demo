@@ -1184,12 +1184,24 @@
   resolved "https://registry.yarnpkg.com/@improbable-eng/grpc-web-node-http-transport/-/grpc-web-node-http-transport-0.12.0.tgz#827138160d2f945620e103473042025529c00c8e"
   integrity sha512-+Kjz+Dktfz5LKTZA9ZW/Vlww6HF9KaKz4x2mVe1O8CJdOP2WfzC+KY8L6EWMqVLrV4MvdBuQdSgDmvSJz+OGuA==
 
+"@improbable-eng/grpc-web-node-http-transport@^0.14.0":
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/@improbable-eng/grpc-web-node-http-transport/-/grpc-web-node-http-transport-0.14.0.tgz#3edf05360541b2d7ba799ec0144780a7a9a99383"
+  integrity sha512-NGZJgY8zTTWM//9oGdJZ+acmCgcgUcqxu3NV3GMFxw35D+3xkdEz599r9O7urg1Vv0+LzXDvfWEg7qg1Ec8x1w==
+
 "@improbable-eng/grpc-web@0.12.0", "@improbable-eng/grpc-web@^0.12.0":
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/@improbable-eng/grpc-web/-/grpc-web-0.12.0.tgz#9b10a7edf2a1d7672f8997e34a60e7b70e49738f"
   integrity sha512-uJjgMPngreRTYPBuo6gswMj1gK39Wbqre/RgE0XnSDXJRg6ST7ZhuS53dFE6Vc2CX4jxgl+cO+0B3op8LA4Q0Q==
   dependencies:
     browser-headers "^0.4.0"
+
+"@improbable-eng/grpc-web@^0.14.0":
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/@improbable-eng/grpc-web/-/grpc-web-0.14.0.tgz#a71c5af471dcef6a2810798f71f93ed8d6ac3817"
+  integrity sha512-ag1PTMWpBZKGi6GrEcZ4lkU5Qag23Xjo10BmnK9qyx4TMmSVcWmQ3rECirfQzm2uogrM9n1M6xfOpFsJP62ivA==
+  dependencies:
+    browser-headers "^0.4.1"
 
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"
@@ -1352,17 +1364,12 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@onflow/config@0.0.2":
+"@onflow/config@0.0.2", "@onflow/config@^0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@onflow/config/-/config-0.0.2.tgz#caed7df27e9258ce2d4eae43f5e6f22caa119547"
   integrity sha512-H/+yrAalzEnMWkubiWsDdWytKSzd+OfRCddTlaRUelxfXhcfw2QWegH9N8EzeKfKXcQ6PLzvu9vQwhFxCZTE8Q==
   dependencies:
     "@onflow/util-actor" "0.0.2"
-
-"@onflow/decode@0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@onflow/decode/-/decode-0.0.10.tgz#de2dc34b45323d92e05ed3ee5e7ca8649e011ef8"
-  integrity sha512-+eInaMNzMtoA2Fkt27HW/GYJdqt7GjIW0gYDpkK6B5AYoRLj1NZTAIX0wV5BUoLCecMGzS1OVML79FxIwLPowQ==
 
 "@onflow/decode@0.0.7":
   version "0.0.7"
@@ -1399,13 +1406,6 @@
   dependencies:
     rlp "^2.2.4"
 
-"@onflow/encode@0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@onflow/encode/-/encode-0.0.8.tgz#e1c4138c7341e4439bf0468583eb0103b2cb3381"
-  integrity sha512-I7p+/KNzsNCpA+AfIOKRKDnkc7kSW4Nr6Hapamh4ak8SDcNfcO4j8Dx+nTsRwhBuo/R/4XpxMpodC6V7+Vmw0w==
-  dependencies:
-    "@onflow/rlp" "0.0.3"
-
 "@onflow/fcl-config@0.0.1":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@onflow/fcl-config/-/fcl-config-0.0.1.tgz#e983f6bdad96a09753ca2000633d7bfed7587527"
@@ -1422,37 +1422,16 @@
     "@onflow/util-actor" "0.0.2"
     queue-microtask "1.1.2"
 
-"@onflow/fcl@^0.0.67":
-  version "0.0.67"
-  resolved "https://registry.yarnpkg.com/@onflow/fcl/-/fcl-0.0.67.tgz#9a14b22e11345f04889434ab668f52e91072342c"
-  integrity sha512-A/1YD+eDx6+mjqENR0bvWSPPww99LYDlLM9jzFjxIyju58paHPCMA7Rav9nQVHfxWMCRAnkbK0yPanUPEyeaww==
+"@onflow/fcl@^0.0.69":
+  version "0.0.69"
+  resolved "https://registry.yarnpkg.com/@onflow/fcl/-/fcl-0.0.69.tgz#5610e12540357f267d4115f86058dc4bbbaea373"
+  integrity sha512-OiFdqiJn7yTnwdg4JXWD9c0KyFxbrmR5qazTpaFrqlCkLYhEuZIV5FywPXmZuNfLKMqjuKc5pXCdtHjw5Nj53g==
   dependencies:
     "@onflow/config" "0.0.2"
-    "@onflow/interaction" "0.0.10"
+    "@onflow/interaction" "0.0.11"
     "@onflow/rlp" "0.0.3"
-    "@onflow/sdk-account" "0.0.8"
-    "@onflow/sdk-build-arguments" "0.0.0"
-    "@onflow/sdk-build-authorizations" "0.0.1"
-    "@onflow/sdk-build-get-account" "0.0.1"
-    "@onflow/sdk-build-get-block-by-height" "0.0.0"
-    "@onflow/sdk-build-get-block-by-id" "0.0.0"
-    "@onflow/sdk-build-get-events" "0.0.0"
-    "@onflow/sdk-build-get-latest-block" "0.0.0"
-    "@onflow/sdk-build-invariant" "0.0.0"
-    "@onflow/sdk-build-limit" "0.0.0"
-    "@onflow/sdk-build-params" "0.0.0"
-    "@onflow/sdk-build-payer" "0.0.0"
-    "@onflow/sdk-build-ping" "0.0.0"
-    "@onflow/sdk-build-proposer" "0.0.0"
-    "@onflow/sdk-build-ref" "0.0.0"
-    "@onflow/sdk-build-script" "0.0.0"
-    "@onflow/sdk-build-transaction" "0.0.0"
-    "@onflow/sdk-build-transaction-status" "0.0.0"
-    "@onflow/sdk-build-validator" "0.0.0"
-    "@onflow/sdk-decode" "0.0.2"
-    "@onflow/sdk-latest-block" "0.0.8"
-    "@onflow/sdk-resolve" "0.0.10"
-    "@onflow/sdk-send" "0.0.10"
+    "@onflow/sdk" "0.0.45"
+    "@onflow/types" "^0.0.4"
     "@onflow/util-actor" "0.0.2"
     "@onflow/util-address" "0.0.0"
     "@onflow/util-invariant" "0.0.0"
@@ -1464,6 +1443,11 @@
   resolved "https://registry.yarnpkg.com/@onflow/interaction/-/interaction-0.0.10.tgz#0809aba2ac3a4b1a7c97de4089e38bbf8d5794b8"
   integrity sha512-3+Nhjn8zZjAXpxH+MuHpl4ZR0s9eQl4aZqmjat2sekDTNNl1dYhaWs+RT5CSxzehGzJ2W+aL7JxFn6exFoA0zA==
 
+"@onflow/interaction@0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@onflow/interaction/-/interaction-0.0.11.tgz#4db8f4304039e33d6fc3b14c38b392d724113374"
+  integrity sha512-Xuq1Mmx6Wyba/F/L+QLQs0yJeQDsIDwy5SKk5vrCuVgIj0yD8k506g5L8ODrbM1LWll8i0tQsoOi0F85vNl5sA==
+
 "@onflow/protobuf@0.1.6":
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/@onflow/protobuf/-/protobuf-0.1.6.tgz#40b3fea8a8c41318085a8f6c018e1d185734aa75"
@@ -1472,7 +1456,7 @@
     "@improbable-eng/grpc-web" "^0.12.0"
     google-protobuf "^3.11.4"
 
-"@onflow/protobuf@0.1.8":
+"@onflow/protobuf@^0.1.8":
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/@onflow/protobuf/-/protobuf-0.1.8.tgz#1b790340efaa222e6e489d818ff426ce4739805d"
   integrity sha512-Taww31RrpJMr3fkWgF2HR2TcRbAoPbMjwRYt9IlYknyRX5YTzpaU35petdqDRfxwmfY9mRxHbiInujX4aV02Hw==
@@ -1485,235 +1469,10 @@
   resolved "https://registry.yarnpkg.com/@onflow/response/-/response-0.0.2.tgz#8cf2aa501a623d4dea9a924b574c8800c854b942"
   integrity sha512-k5UD4nv9F6YAkDn0Gs0F6R2Izr6jekX9sGu6aPbTQCsfyv8kbG8GRhnfcugtwbGfEKmYO4Dj91QtWy246V9sUQ==
 
-"@onflow/rlp@0.0.3":
+"@onflow/rlp@0.0.3", "@onflow/rlp@^0.0.3":
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@onflow/rlp/-/rlp-0.0.3.tgz#42e10944309732bfd9acca79710c8210b9aabd4c"
   integrity sha512-oAf0VEiMjX8eC6Vd66j1BdGYTHOM6UBaS/sLSScnc7bKX5gICqe2gtEsCeJVE9rUzRk3GD3JqXRnPAW6YFWd/Q==
-
-"@onflow/sdk-account@0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-account/-/sdk-account-0.0.8.tgz#6d4f2cdc6b54ff89039e5e11dc5955f4c5c7c175"
-  integrity sha512-fa0zJkb7xasvfCWyo1WqZNomAV4vKulhp9br0+E08cwdSJWcH2CrgWz75Q67YFpdnflhP0n3RzrAREcXt6Y54Q==
-  dependencies:
-    "@onflow/sdk-build-get-account" "0.0.1"
-    "@onflow/sdk-decode" "0.0.2"
-    "@onflow/sdk-send" "0.0.10"
-
-"@onflow/sdk-build-arguments@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-arguments/-/sdk-build-arguments-0.0.0.tgz#07fca500220ee5c9d33e6374ef368ef915e4567a"
-  integrity sha512-CAUboKBIIfpVpoZFGIHa7vGtTXuAeE/YRyyDGtdlvQcu+7AqumJ0Sz4MohUY+DyvcSTC9FdNs/d5XicS3EIo2A==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-build-authorizations@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-authorizations/-/sdk-build-authorizations-0.0.1.tgz#d8db5e947f6ff076c55dad6b055f87293e6fd820"
-  integrity sha512-N46d9Hv4Jtrb159+HPq9R8RCkao4DnUmbZYIxxM8rkuTUdRluDC52SKS1to9l0WnhJm5+div8E+dSVIg1MBfnw==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-build-get-account@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-get-account/-/sdk-build-get-account-0.0.1.tgz#3463d7d8951c0a6943bc7780060d286e3d2cd9f6"
-  integrity sha512-BOTLsAqhXwwRj9TYDmV40yBKHRWBToFY1WvJKUOI05oZBOBqDb2KB0L5ej3uKpA/XdmIH4HDmRMmxWU01Xy+FA==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-    "@onflow/util-address" "0.0.0"
-
-"@onflow/sdk-build-get-block-by-height@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-get-block-by-height/-/sdk-build-get-block-by-height-0.0.0.tgz#3f21bc444e56fa5c7a17d92257357cc3cf2a4cc5"
-  integrity sha512-Efvnzj+eWRTp76RHH3z25G0R+3N8b5oK/addfyjsh5hK61Mk9DAN9JgHQdeglTWgNaOJ0dKrzBZ/SJP2Uz9RHA==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-build-get-block-by-id@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-get-block-by-id/-/sdk-build-get-block-by-id-0.0.0.tgz#c8798fde4a1c7b4c7aedb20e0d4694f732c25101"
-  integrity sha512-Zw5Gt9NNVUn9CrSUE+SpJO80HL3yUnFhZZcQHw3WvaTb3hDYpDlGs9ldPjYI+SrNxMJAg3KD5OzFnKHMEnmQLw==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-build-get-events@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-get-events/-/sdk-build-get-events-0.0.0.tgz#47e64f02ef18b56c58b77ded5ad00e995b605794"
-  integrity sha512-xABLsjs2BftKezH2mc34k6GVIXgmUjdv5bY2MFQI3btkVXn/vVbg/WEB/JNOmXl4dIvZXFMD9ANncS6n0PvcSw==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-build-get-latest-block@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-get-latest-block/-/sdk-build-get-latest-block-0.0.0.tgz#28c3de67a4f10628b29004dc14b228b5d2a93b7c"
-  integrity sha512-RnUkH3gqStboZ6pQXTeGq7CrMwaqD2p+z4rHqBlcbLF8pAiJQgFLDigQ2vUxrwkMJmnNqi3lJfMzX58dgDa2JA==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-build-invariant@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-invariant/-/sdk-build-invariant-0.0.0.tgz#33656480d2a0a7e84f0233846257aff09b8ffac3"
-  integrity sha512-eB1Jf6NZQ7wKQMudc2a6T03/SFH3OyVm67mKzU+gWXOUBZwh2GZfaW8ujchrYwy0tFyyqzTP1nqEFws8cQyvJg==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-build-limit@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-limit/-/sdk-build-limit-0.0.0.tgz#d2cba10128e772784bf9c544f83014ef3e897e53"
-  integrity sha512-HDl6UD7M6QgkII8tMlVgYeHO8WxkjzeQq/d16ZBeux5IGA0jd3mdV0sZSB01n6dio82Ap+vW79uIgM3e1urs5A==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-build-params@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-params/-/sdk-build-params-0.0.0.tgz#3e2df6bfa891c922f743a5425298278a5c69a1c0"
-  integrity sha512-Y6TT0MbkzsemAOuwDoCkhUF286krqndGS9bzQ+ipaykGz6ibKDguXGzPCq+eRLA8+uVMsEWcUJ/UE6YxzuwUeg==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-build-payer@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-payer/-/sdk-build-payer-0.0.0.tgz#8e6e2e39465bd2f71a45219791f499af32aa1866"
-  integrity sha512-siVQV8XE1l94Bqotx2thB59rTWkfTBuvyVOY7oj1hibYMBcyg+xQozZRJEZEV8H5aQOXkSmP7JXlutfqqFqt0Q==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-build-ping@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-ping/-/sdk-build-ping-0.0.0.tgz#04e37a8403b659b9588d1dbd0f63255b91b03686"
-  integrity sha512-NRcg5drVzBkviK339t3KQL6yIN5JuO9xsTlALgAgPduABv1RfxdNCRSxWtxfqozNSz8c11ki+KTdZHJIwmBZAg==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-build-proposer@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-proposer/-/sdk-build-proposer-0.0.0.tgz#82c7c8f5c842043316f343bfea5ad7cb8c6a1912"
-  integrity sha512-voEjh9ioG/R4EKFx9QWOEplhYOfB5ddwuoYQq5/0R6hLKnylnnTFvnphtWIMlcwhOJWM17ViKyozvucS0MhlyQ==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-build-ref@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-ref/-/sdk-build-ref-0.0.0.tgz#fc1bdf0fc1257a648468ee2444ee0258643c3295"
-  integrity sha512-+5bPNaOWnNeB+6vSBgBW9ojg6pkK8nvPwqMWvJQ9nVKPhsCXDO8Y28PtFjX0/vWbt+lRR4vfgdbG8fGfLV7Nzg==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-build-script@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-script/-/sdk-build-script-0.0.0.tgz#3a6619443ceef2862cbf4d1700b91186301a2029"
-  integrity sha512-r7CG+Q9svfTUykH61t4epo4D290NYvKlryQ+Csjot5FGTsvssXEwELRqiUOkONW7KOH+GpDG7LRQlikTgnnREQ==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-    "@onflow/util-template" "0.0.1"
-
-"@onflow/sdk-build-transaction-status@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-transaction-status/-/sdk-build-transaction-status-0.0.0.tgz#17b90eb8b6a5e9331a537ac1168611b7cfef44e1"
-  integrity sha512-hj1AJgJsK/PVmY5s7gzsqoekzswFudI7VWj1oee99NKqM+BRPGH7HBTuEIYP1PZZ7XCW1KsDy54QbqPfMmeIUQ==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-build-transaction@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-transaction/-/sdk-build-transaction-0.0.0.tgz#3ec88dd0bf37da69fbd46f0439f4937de72d0f05"
-  integrity sha512-19S6QB2LcFxOm5o91A8Q4Pcfdrk1bdvnasyNdG1Cel/SwKLPUoHmCoelFCHbZkIYlwnEdLQZm11plQIfo70o6w==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-    "@onflow/util-template" "0.0.1"
-
-"@onflow/sdk-build-validator@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-build-validator/-/sdk-build-validator-0.0.0.tgz#171450a822a224d28f0ead659a5e775a3a07fbdc"
-  integrity sha512-ZgYappRaqmDXKOP9By1ZODa3iQu6xlHN0I53UZ5HgLtQ8MXsVCvpsNR7Zj9rYeWdlfJDglQeWORmhluw7zssSw==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-decode@0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-decode/-/sdk-decode-0.0.2.tgz#244c28e960d6ec8a10065f787752c8a1da3b2002"
-  integrity sha512-qqz29UaGEVVmfols5VRUODL3m73rURs/VAEDbCFjlrGn2kPRCUOcYofazge88jYY/9rwYuDvueDEVDg4iLV2+A==
-  dependencies:
-    "@onflow/config" "0.0.2"
-    "@onflow/decode" "0.0.10"
-
-"@onflow/sdk-latest-block@0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-latest-block/-/sdk-latest-block-0.0.8.tgz#4a975840022c3fea8c5e9180e05e2e706884d9de"
-  integrity sha512-zBuETIqF+1KIi9C4BOUp1zKmrUdLHdYHSnVeV5rgS+90GNy5f3nH3xsWXKg74KRs3ZD0QgoJRkf3zTODuHpjmw==
-  dependencies:
-    "@onflow/sdk-build-get-latest-block" "0.0.0"
-    "@onflow/sdk-decode" "0.0.2"
-    "@onflow/sdk-send" "0.0.10"
-
-"@onflow/sdk-resolve-accounts@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-resolve-accounts/-/sdk-resolve-accounts-0.0.0.tgz#b4e770064856900882bd0802c9bd578116fa939d"
-  integrity sha512-IrYWNC8Am/b8dznsbuh+/LLTkaXrkjsFMnRDc7ANFC7wZoukWv3Wwf2U/5ybtaTAJax5SF/SNgLeS4Inx60uOA==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-resolve-arguments@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-resolve-arguments/-/sdk-resolve-arguments-0.0.1.tgz#6e0e6759d313ab4f4dfbdb2b5d7b595ac123e4a0"
-  integrity sha512-CbGEZo28l8uaHt8oA5O7yVOOdakjTFXICQCtBDnT+z8tEvDaqIR29rgE9uzXbDnPSCSxHSsxttO1nxQ8DzDEOQ==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-resolve-cadence@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-resolve-cadence/-/sdk-resolve-cadence-0.0.1.tgz#012791154889b495bb3f1f23e6484a5fdd68add7"
-  integrity sha512-nZf5JwwjCcG55GaB325Y5PwyhYq6PRo1eVLz3rxFP8RB3LTxaPJwuPK8QD5wfeGumM/7UvtbvuEBZwEqN9eKtQ==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-resolve-ref-block-id@0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-resolve-ref-block-id/-/sdk-resolve-ref-block-id-0.0.7.tgz#d71bd775853aaa4c7eef586ccea059b5d717a607"
-  integrity sha512-Q+eD27TgpIiMu8FXZ0tBCZCDRwWmtc85dKNuJZlqLHl8aZ/5H7BnNpTaj2O6TWzJAXakeBtDIdHz8Zeb1to5oA==
-  dependencies:
-    "@onflow/decode" "0.0.10"
-    "@onflow/interaction" "0.0.10"
-    "@onflow/sdk-build-get-latest-block" "0.0.0"
-    "@onflow/send" "0.0.35"
-
-"@onflow/sdk-resolve-signatures@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-resolve-signatures/-/sdk-resolve-signatures-0.0.5.tgz#a9b5a166c287dc8b491b08bd74a5561c0cc1fee9"
-  integrity sha512-rh/8ZVS3O3bMQSwVYfxewSLVVf5zUmcaCGR9AufPxZJYCH7YCrjbYzkEpsTZKUNxn4uzxp3X4gsPLvzKyZuiMQ==
-  dependencies:
-    "@onflow/encode" "0.0.8"
-    "@onflow/interaction" "0.0.10"
-    "@onflow/util-address" "0.0.0"
-
-"@onflow/sdk-resolve-validators@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-resolve-validators/-/sdk-resolve-validators-0.0.0.tgz#8dfb82b493abfe54bb4691a3275c71a852eb37eb"
-  integrity sha512-OiC6o8VgzZ2mn1qD3Bi12zbXk9AS8ALoLg4X8XnYJqe1HwCBVaAAy+dFL8jI7SVvgqOINTGxcz+6cF4UvfZUPw==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-
-"@onflow/sdk-resolve@0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-resolve/-/sdk-resolve-0.0.10.tgz#02968758133d9325525609095c62aba1fc0ad0d6"
-  integrity sha512-SnlAZfenZWoWasLSQepnMljTEe7T9GWYUwR1VgF0/tXxnjDtnbhH9hH2WDp1Ioyev8DA7V3Jqd4qygj+fOsnMg==
-  dependencies:
-    "@onflow/interaction" "0.0.10"
-    "@onflow/sdk-resolve-accounts" "0.0.0"
-    "@onflow/sdk-resolve-arguments" "0.0.1"
-    "@onflow/sdk-resolve-cadence" "0.0.1"
-    "@onflow/sdk-resolve-ref-block-id" "0.0.7"
-    "@onflow/sdk-resolve-signatures" "0.0.5"
-    "@onflow/sdk-resolve-validators" "0.0.0"
-
-"@onflow/sdk-send@0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk-send/-/sdk-send-0.0.10.tgz#829478bca065d0c606fc7a73c0b8df9de1155648"
-  integrity sha512-jzJuLsEKnW6lsP2gxcgF5LPW2HVjnClSKGo5Y+w8VQdgGvWVWLkMqUMJF3Pf/X6pQ1oWXfFu9UNioRKQnFW2ZQ==
-  dependencies:
-    "@onflow/config" "0.0.2"
-    "@onflow/interaction" "0.0.10"
-    "@onflow/sdk-resolve" "0.0.10"
-    "@onflow/send" "0.0.35"
 
 "@onflow/sdk@0.0.31":
   version "0.0.31"
@@ -1726,6 +1485,21 @@
     "@onflow/send" "0.0.20"
     "@qvvg/templar" "0.0.1"
 
+"@onflow/sdk@0.0.45":
+  version "0.0.45"
+  resolved "https://registry.yarnpkg.com/@onflow/sdk/-/sdk-0.0.45.tgz#63bcf1b08784803ff472b7e0c43c88da9914e901"
+  integrity sha512-fNXTydFSieJhW3RzKPErdGm4IAWSb/CwaoKbs+CCaizIbmHVyGjgOzWlHI2nPhuUrBQBy4wCiqn25ZpPg9h12Q==
+  dependencies:
+    "@improbable-eng/grpc-web" "^0.14.0"
+    "@improbable-eng/grpc-web-node-http-transport" "^0.14.0"
+    "@onflow/config" "^0.0.2"
+    "@onflow/protobuf" "^0.1.8"
+    "@onflow/rlp" "^0.0.3"
+    "@onflow/util-address" "^0.0.0"
+    "@onflow/util-invariant" "^0.0.0"
+    "@onflow/util-template" "0.0.1"
+    deepmerge "^4.2.2"
+
 "@onflow/send@0.0.20":
   version "0.0.20"
   resolved "https://registry.yarnpkg.com/@onflow/send/-/send-0.0.20.tgz#d1d8382892994952672a46cc00e6aab68567aa9b"
@@ -1736,19 +1510,6 @@
     "@onflow/interaction" "0.0.10"
     "@onflow/protobuf" "0.1.6"
     "@onflow/response" "0.0.2"
-
-"@onflow/send@0.0.35":
-  version "0.0.35"
-  resolved "https://registry.yarnpkg.com/@onflow/send/-/send-0.0.35.tgz#59f8c6e4483bab307152788a5c0574b322f9d3c7"
-  integrity sha512-yJbpC8tF1SOaBpNWi2CEoGQSSO/sH8+9VBWwbxolc4xUwmyl8F+1WpYdXesOSDQFCzSP5womt3xKYWG4LF7FGw==
-  dependencies:
-    "@improbable-eng/grpc-web" "0.12.0"
-    "@improbable-eng/grpc-web-node-http-transport" "0.12.0"
-    "@onflow/config" "0.0.2"
-    "@onflow/interaction" "0.0.10"
-    "@onflow/protobuf" "0.1.8"
-    "@onflow/response" "0.0.2"
-    "@onflow/util-address" "^0.0.0"
 
 "@onflow/types@0.0.1":
   version "0.0.1"
@@ -1777,7 +1538,7 @@
   resolved "https://registry.yarnpkg.com/@onflow/util-address/-/util-address-0.0.0.tgz#f14696cdd8fb7808f1da59f1fde116621e901ebf"
   integrity sha512-Lzbw/wV3O1fmfXYF2q6iGLgHz/7ATsLXOHceP5tzeEAKNf+srdtTNJv5jhNGhpFFAtQ6TcomXURVMhUg+/4YbA==
 
-"@onflow/util-invariant@0.0.0":
+"@onflow/util-invariant@0.0.0", "@onflow/util-invariant@^0.0.0":
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/@onflow/util-invariant/-/util-invariant-0.0.0.tgz#4bb62f7022b211a0538d4b854105fcbdc3782a11"
   integrity sha512-ZCt+NqLdeHt9tZhb0DGxo6iSIS9oNUpLkd0PEMzUYUHr4UwrUO7VruV1AUW3PaF9V78DZ13fNZUiQEzdF76O/w==
@@ -2936,7 +2697,7 @@ brorand@^1.0.1:
   resolved "https://registry.yarnpkg.com/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
   integrity sha1-EsJe/kCkXjwyPrhnWgoM5XsiNx8=
 
-browser-headers@^0.4.0:
+browser-headers@^0.4.0, browser-headers@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/browser-headers/-/browser-headers-0.4.1.tgz#4308a7ad3b240f4203dbb45acedb38dc2d65dd02"
   integrity sha512-CA9hsySZVo9371qEHjHZtYxV2cFtVj5Wj/ZHi8ooEsrtm4vOnl9Y9HmyYWk9q+05d7K3rdoAE0j3MVEFVvtQtg==
@@ -4096,6 +3857,11 @@ deep-is@~0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
   integrity sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ=
+
+deepmerge@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
+  integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
 
 default-gateway@^4.2.0:
   version "4.2.0"
