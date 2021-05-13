@@ -18,6 +18,7 @@
 		},
 		"service": {
 			"address": "f8d6e0586b0a20c7",
+            "keys": "67ff105cfed60b0db9f95960851b9b96a73a03e972a09195a0efa709a828958b",
 			"privateKey": "67ff105cfed60b0db9f95960851b9b96a73a03e972a09195a0efa709a828958b",
 			"sigAlgorithm": "ECDSA_P256",
 			"hashAlgorithm": "SHA3_256"
