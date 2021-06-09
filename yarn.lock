@@ -1422,15 +1422,15 @@
     "@onflow/util-actor" "0.0.2"
     queue-microtask "1.1.2"
 
-"@onflow/fcl@^0.0.69":
-  version "0.0.69"
-  resolved "https://registry.yarnpkg.com/@onflow/fcl/-/fcl-0.0.69.tgz#5610e12540357f267d4115f86058dc4bbbaea373"
-  integrity sha512-OiFdqiJn7yTnwdg4JXWD9c0KyFxbrmR5qazTpaFrqlCkLYhEuZIV5FywPXmZuNfLKMqjuKc5pXCdtHjw5Nj53g==
+"@onflow/fcl@^0.0.71":
+  version "0.0.71"
+  resolved "https://registry.yarnpkg.com/@onflow/fcl/-/fcl-0.0.71.tgz#32dbc30f4291095ae9bc877127336618c5494074"
+  integrity sha512-RMfm8BEt1kMdrQCBOAXPfBk+KPwemtwP78c0rA3PBg6maB3h96KYJSGW7+Fv5jmx/xZHFuvmk2R9nGv29pJ3DQ==
   dependencies:
     "@onflow/config" "0.0.2"
     "@onflow/interaction" "0.0.11"
     "@onflow/rlp" "0.0.3"
-    "@onflow/sdk" "0.0.45"
+    "@onflow/sdk" "0.0.47"
     "@onflow/types" "^0.0.4"
     "@onflow/util-actor" "0.0.2"
     "@onflow/util-address" "0.0.0"
@@ -1485,10 +1485,10 @@
     "@onflow/send" "0.0.20"
     "@qvvg/templar" "0.0.1"
 
-"@onflow/sdk@0.0.45":
-  version "0.0.45"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk/-/sdk-0.0.45.tgz#63bcf1b08784803ff472b7e0c43c88da9914e901"
-  integrity sha512-fNXTydFSieJhW3RzKPErdGm4IAWSb/CwaoKbs+CCaizIbmHVyGjgOzWlHI2nPhuUrBQBy4wCiqn25ZpPg9h12Q==
+"@onflow/sdk@0.0.47":
+  version "0.0.47"
+  resolved "https://registry.yarnpkg.com/@onflow/sdk/-/sdk-0.0.47.tgz#bc4961d0019ccf226ed1a180bfdab64087fe4b07"
+  integrity sha512-ouZL5aze9biIJfJeNUzbc4oU54ljTEFFcEXFkR13XBdMkVr3kJ7aA3EkB1T0+iezLEqxV8dkTuDnpCNmMjqJEQ==
   dependencies:
     "@improbable-eng/grpc-web" "^0.14.0"
     "@improbable-eng/grpc-web-node-http-transport" "^0.14.0"
