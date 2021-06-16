@@ -88,6 +88,12 @@ const TeleportBLT = () => {
     if (user && user.addr) {
       fetchData()
     }
+
+    let interval = setInterval(fetchData, 5000)
+
+    return () => {
+      clearInterval(interval)
+    }
   }, [user])
 
   const updateAddr = (event) => {
