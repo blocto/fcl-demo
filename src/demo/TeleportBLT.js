@@ -24,19 +24,19 @@ pub fun main(account: Address): UFix64 {
 const simpleTransaction = `\
 import FungibleToken from 0x9a0766d93b6608b7
 import BloctoToken from 0xccc5c610f25031c9
-import TeleportCustody from 0x967a0fb3c949cbc5
+import TeleportCustodySolana from 0x967a0fb3c949cbc5
 
 transaction(amount: UFix64, target: String) {
 
     // The TeleportUser reference for teleport operations
-    let teleportUserRef: &TeleportCustody.TeleportAdmin{TeleportCustody.TeleportUser}
+    let teleportUserRef: &TeleportCustodySolana.TeleportAdmin{TeleportCustodySolana.TeleportUser}
 
     // The Vault resource that holds the tokens that are being transferred
     let sentVault: @FungibleToken.Vault
 
     prepare(signer: AuthAccount) {
-        self.teleportUserRef = getAccount(0xf086a545ce3c552d).getCapability(TeleportCustody.TeleportAdminTeleportUserPath)
-            .borrow<&TeleportCustody.TeleportAdmin{TeleportCustody.TeleportUser}>()
+        self.teleportUserRef = getAccount(0xf086a545ce3c552d).getCapability(TeleportCustodySolana.TeleportAdminTeleportUserPath)
+            .borrow<&TeleportCustodySolana.TeleportAdmin{TeleportCustodySolana.TeleportUser}>()
             ?? panic("Could not borrow a reference to TeleportOut")
 
         let vaultRef = signer.borrow<&BloctoToken.Vault>(from: BloctoToken.TokenStoragePath)
@@ -46,7 +46,7 @@ transaction(amount: UFix64, target: String) {
     }
 
     execute {
-        self.teleportUserRef.lock(from: <- self.sentVault, to: target.decodeHex())
+        self.teleportUserRef.lock(from: <- self.sentVault, to: target.decodeHex(), toAddressType: "SOL")
     }
 }
 `
