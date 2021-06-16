@@ -1,59 +1,57 @@
 import React, {useState, useEffect} from "react"
 import * as fcl from "@onflow/fcl"
 import * as t from "@onflow/types"
+import bs58 from 'bs58'
 
 import Card from '../components/Card'
 import Header from '../components/Header'
 import Code from '../components/Code'
 
-const checkFusdAmount = `\
+const checkBltAmount = `\
 import FungibleToken from 0x9a0766d93b6608b7
-import FUSD from 0xe223d8a629e49c68
+import BloctoToken from 0xccc5c610f25031c9
 
 pub fun main(account: Address): UFix64 {
-  let receiverRef = getAccount(account).getCapability(/public/fusdBalance)!
-    .borrow<&FUSD.Vault{FungibleToken.Balance}>()
+  let balanceRef = getAccount(account).getCapability(BloctoToken.TokenPublicBalancePath)
+    .borrow<&{FungibleToken.Balance}>()
+    ?? panic("Could not borrow balance public reference")
 
-  return receiverRef!.balance
+  return balanceRef.balance
 }
 
 `
 
 const simpleTransaction = `\
 import FungibleToken from 0x9a0766d93b6608b7
-import FUSD from 0xe223d8a629e49c68
+import BloctoToken from 0xccc5c610f25031c9
+import TeleportCustody from 0x967a0fb3c949cbc5
 
-transaction(amount: UFix64, to: Address) {
+transaction(amount: UFix64, target: String) {
+
+    // The TeleportUser reference for teleport operations
+    let teleportUserRef: &TeleportCustody.TeleportAdmin{TeleportCustody.TeleportUser}
 
     // The Vault resource that holds the tokens that are being transferred
     let sentVault: @FungibleToken.Vault
 
     prepare(signer: AuthAccount) {
+        self.teleportUserRef = getAccount(0xf086a545ce3c552d).getCapability(TeleportCustody.TeleportAdminTeleportUserPath)
+            .borrow<&TeleportCustody.TeleportAdmin{TeleportCustody.TeleportUser}>()
+            ?? panic("Could not borrow a reference to TeleportOut")
 
-        // Get a reference to the signer's stored vault
-        let vaultRef = signer.borrow<&FUSD.Vault>(from: /storage/fusdVault)
-			?? panic("Could not borrow reference to the owner's Vault!")
+        let vaultRef = signer.borrow<&BloctoToken.Vault>(from: BloctoToken.TokenStoragePath)
+            ?? panic("Could not borrow a reference to the vault resource")
 
-        // Withdraw tokens from the signer's stored vault
         self.sentVault <- vaultRef.withdraw(amount: amount)
     }
 
     execute {
-
-        // Get the recipient's public account object
-        let recipient = getAccount(to)
-
-        // Get a reference to the recipient's Receiver
-        let receiverRef = recipient.getCapability(/public/fusdReceiver)!.borrow<&{FungibleToken.Receiver}>()
-			?? panic("Could not borrow receiver reference to the recipient's Vault")
-
-        // Deposit the withdrawn tokens in the recipient's receiver
-        receiverRef.deposit(from: <-self.sentVault)
+        self.teleportUserRef.lock(from: <- self.sentVault, to: target.decodeHex())
     }
 }
 `
 
-const SendFUSD = () => {
+const TeleportBLT = () => {
   const [balance, setBalance] = useState(0)
   const [addr, setAddr] = useState(null)
   const [amount, setAmount] = useState(null)
@@ -75,7 +73,7 @@ const SendFUSD = () => {
 
       try { 
         const response = await fcl.send([
-          fcl.script(checkFusdAmount),
+          fcl.script(checkBltAmount),
           fcl.args([fcl.arg(user.addr, t.Address)]),
         ]);
     
@@ -114,13 +112,15 @@ const SendFUSD = () => {
     ])
 
     const block = await fcl.decode(blockResponse)
+
+    const receiver = bs58.decode(addr).toString('hex')
     
     try {
       const { transactionId } = await fcl.send([
         fcl.transaction(simpleTransaction),
         fcl.args([
           fcl.arg(parseFloat(amount).toFixed(8), t.UFix64),
-          fcl.arg(addr, t.Address),
+          fcl.arg(receiver, t.String),
         ]),
         fcl.proposer(fcl.currentUser().authorization),
         fcl.authorizations([
@@ -151,14 +151,14 @@ const SendFUSD = () => {
 
   return (
     <Card>
-      <Header>send FUSD</Header>
+      <Header>teleport BLT</Header>
 
       <Code>Balance: {balance}</Code>
 
       {/* <Code>{simpleTransaction}</Code> */}
 
       <input
-        placeholder="Receiver Address 0x..."
+        placeholder="Solana address"
         onChange={updateAddr}
       />
 
@@ -168,7 +168,7 @@ const SendFUSD = () => {
       />
 
       <button onClick={sendTransaction}>
-        Send
+        Teleport
       </button>
 
       <Code>Status: {status}</Code>
@@ -178,4 +178,4 @@ const SendFUSD = () => {
   )
 }
 
-export default SendFUSD
+export default TeleportBLT
