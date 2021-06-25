@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
-import Header from '../components/Header'
+// import Header from '../components/Header'
 import Code from '../components/Code'
 
 const simpleTransaction = `\
