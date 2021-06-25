@@ -24,23 +24,23 @@ const Wrapper = styled.div`
 function App() {
   return (
     <Wrapper>
-      <Section>
+      {/* <Section>
         <Header>READ from FCL</Header>
         <GetLatestBlock />
         <GetAccount />
         <ScriptOne />
         <ScriptTwo />
-      </Section>
+      </Section> */}
 
       <Section>
-        <Header>FCL wallet interactions</Header>
+        <Header>Dark Country Collection Upgrade</Header>
         <Authenticate />
-        <UserInfo />
+        {/* <UserInfo /> */}
         <SendTransaction />
-        <SignMessage />
+        {/* <SignMessage />
         <SendFUSD />
         <DeployContract />
-        <InteractWithContract />
+        <InteractWithContract /> */}
       </Section>
     </Wrapper>
   );

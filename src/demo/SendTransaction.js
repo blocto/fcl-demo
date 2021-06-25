@@ -6,9 +6,16 @@ import Header from '../components/Header'
 import Code from '../components/Code'
 
 const simpleTransaction = `\
-transaction {
-  execute {
-    log("A transaction happened")
+import NonFungibleToken from 0x1d7e57aa55817448
+import DarkCountry from 0xc8c340cebd11f690
+
+transaction() {
+  prepare(signer: AuthAccount) {
+    signer.unlink(DarkCountry.CollectionPublicPath)
+    signer.link<&DarkCountry.Collection{DarkCountry.DarkCountryCollectionPublic, NonFungibleToken.CollectionPublic}>(
+      DarkCountry.CollectionPublicPath,
+      target: DarkCountry.CollectionStoragePath
+    )
   }
 }
 `
@@ -32,6 +39,9 @@ const SendTransaction = () => {
       const { transactionId } = await fcl.send([
         fcl.transaction(simpleTransaction),
         fcl.proposer(fcl.currentUser().authorization),
+        fcl.authorizations([
+          fcl.currentUser().authorization,
+        ]),
         fcl.payer(fcl.currentUser().authorization),
         fcl.ref(block.id),
       ])
@@ -56,12 +66,12 @@ const SendTransaction = () => {
 
   return (
     <Card>
-      <Header>send transaction</Header>
+      {/* <Header>Upgrade your Blocto Dark Country Collection</Header> */}
 
-      <Code>{simpleTransaction}</Code>
+      {/* <Code>{simpleTransaction}</Code> */}
 
       <button onClick={sendTransaction}>
-        Send
+        Upgrade
       </button>
 
       <Code>Status: {status}</Code>
