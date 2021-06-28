@@ -6,7 +6,7 @@ import Header from './components/Header'
 
 // import GetLatestBlock from './demo/GetLatestBlock'
 // import GetAccount from './demo/GetAccount'
-// import ScriptOne from "./demo/ScriptOne"
+import ScriptOne from "./demo/ScriptOne"
 // import ScriptTwo from './demo/ScriptTwo'
 import Authenticate from './demo/Authenticate'
 // import UserInfo from './demo/UserInfo'
@@ -35,6 +35,7 @@ function App() {
       <Section>
         <Header>Dark Country Collection Upgrade</Header>
         <Authenticate />
+        <ScriptOne />
         {/* <UserInfo /> */}
         <SendTransaction />
         {/* <SignMessage />
