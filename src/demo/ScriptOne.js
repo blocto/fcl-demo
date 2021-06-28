@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import * as fcl from "@onflow/fcl"
 import * as t from "@onflow/types"
 
@@ -24,14 +24,25 @@ pub fun main(address: Address): [UInt64] {
 
 export default function ScriptOne() {
   const [data, setData] = useState(null)
+  const [user, setUser] = useState(null)
+
+  useEffect(() =>
+    fcl
+      .currentUser()
+      .subscribe(user => setUser({...user}))
+  , [])
 
   const runScript = async (event) => {
     event.preventDefault()
 
+    if (!user.addr) {
+      return
+    }
+
     const response = await fcl.send([
       fcl.script(scriptOne),
       fcl.args([
-        fcl.arg('0xdd718b0856a69974', t.Address),
+        fcl.arg(user.addr, t.Address),
       ]),
     ])
     
