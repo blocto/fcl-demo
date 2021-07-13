@@ -1,7 +1,7 @@
 # Flow Client Library Demo
 
 This project demonstrates how to use FCL in your webapp and interact with Flow and wallet providers.
-You can find an online demo [Here](http://fcl-demo.portto.io/)
+You can find an online demo [Here](https://fcl-demo.netlify.app/)
 
 ## Getting Started
 
