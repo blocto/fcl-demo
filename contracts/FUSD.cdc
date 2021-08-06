@@ -1,4 +1,4 @@
-import FungibleToken from 0x01cf0e2f2f715450
+import FungibleToken from 0xee82856bf20e2aa6
 
 pub contract FUSD: FungibleToken {
 
@@ -191,7 +191,7 @@ pub contract FUSD: FungibleToken {
 
     }
 
-    init(adminAccount: AuthAccount) {
+    init() {
         self.AdminStoragePath = /storage/fusdAdmin
         self.MinterProxyPublicPath = /public/fusdMinterProxy
         self.MinterProxyStoragePath = /storage/fusdMinterProxy
@@ -199,7 +199,7 @@ pub contract FUSD: FungibleToken {
         self.totalSupply = 0.0
 
         let admin <- create Administrator()
-        adminAccount.save(<-admin, to: self.AdminStoragePath)
+        self.account.save(<-admin, to: self.AdminStoragePath)
 
         // Emit an event that shows that the contract was initialized
         emit TokensInitialized(initialSupply: 0.0)
