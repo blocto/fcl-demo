@@ -5,17 +5,44 @@
 			"serviceAccount": "emulator-account"
 		}
 	},
-	"contracts": {},
 	"networks": {
 		"emulator": "127.0.0.1:3569",
 		"mainnet": "access.mainnet.nodes.onflow.org:9000",
 		"testnet": "access.devnet.nodes.onflow.org:9000"
 	},
 	"accounts": {
+		"admin-account": {
+			"address": "3ae53cb6e3f42a79",
+			"key": "12332967fd2bd75234ae9037dd4694c1f00baad63a10c35172bf65fbb8ad1111"
+		},
+		"user-account": {
+			"address": "e2a8b7f23e8b548f",
+			"key": "22232967fd2bd75234ae9037dd4694c1f00baad63a10c35172bf65fbb8ad1111"
+		},
 		"emulator-account": {
+			"type": "hex",
 			"address": "f8d6e0586b0a20c7",
-			"keys": "67ff105cfed60b0db9f95960851b9b96a73a03e972a09195a0efa709a828958b"
+			"key": "2eae2f31cb5b756151fa11d82949c634b8f28796a711d7eb1e52cc301ed11111",
+			"signatureAlgorithm": "ECDSA_secp256k1",
+			"hashAlgorithm": "SHA3_256"
 		}
 	},
-	"deployments": {}
+	"contracts": {
+		"FUSD": "./contracts/FUSD.cdc",
+		"FungibleToken": {
+			"source": "./contracts/FungibleToken.cdc",
+			"aliases": {
+				"testnet": "9a0766d93b6608b7",
+				"emulator": "ee82856bf20e2aa6"
+			}
+		}
+	},
+	"deployments": {
+		"testnet": {
+			"admin-account": ["FUSD"]
+		},
+		"emulator": {
+			"emulator-account": ["FUSD"]
+		}
+	}
 }
