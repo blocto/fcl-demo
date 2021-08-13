@@ -31,9 +31,18 @@ const SendTransaction = () => {
     try {
       const { transactionId } = await fcl.send([
         fcl.transaction(simpleTransaction),
-        fcl.proposer(fcl.currentUser().authorization),
-        fcl.payer(fcl.currentUser().authorization),
+        fcl.args([
+          fcl.arg("2.0", types.UFix64),
+          fcl.arg("0x4b8505577ace5b24", types.Address)
+        ]),
+        fcl.proposer(fcl.currentUser().authorization), //flow-js-sdk  packages/fcl/src/current-user/index.js:176
+        fcl.payer(fcl.currentUser().authorization), //なんならこっちもadmin
+        fcl.authorizations([
+          fcl.currentUser().authorization,
+          //admin
+        ]),
         fcl.ref(block.id),
+        fcl.limit(100), // Execution failed: computation limited exceeded
       ])
 
       setStatus("Transaction sent, waiting for confirmation")

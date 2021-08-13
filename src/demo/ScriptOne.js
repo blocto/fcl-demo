@@ -19,6 +19,9 @@ export default function ScriptOne() {
 
     const response = await fcl.send([
       fcl.script(scriptOne),
+      fcl.args([
+        fcl.arg("0x4b8505577ace5b24", types.Address)
+      ])
     ])
     
     setData(await fcl.decode(response))
