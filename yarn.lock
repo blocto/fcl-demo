@@ -1538,6 +1538,14 @@
   resolved "https://registry.yarnpkg.com/@onflow/util-address/-/util-address-0.0.0.tgz#f14696cdd8fb7808f1da59f1fde116621e901ebf"
   integrity sha512-Lzbw/wV3O1fmfXYF2q6iGLgHz/7ATsLXOHceP5tzeEAKNf+srdtTNJv5jhNGhpFFAtQ6TcomXURVMhUg+/4YbA==
 
+"@onflow/util-encode-key@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@onflow/util-encode-key/-/util-encode-key-0.0.2.tgz#223403975b468f377e19fbfd95cc716e3dc89ace"
+  integrity sha512-gY9H4f1USijXbgk6IoNibAibF8VB6spZgq2fdkxA9PKgKay6UjolnsKTvIkA0k4/CIiODQIh5ziL069mrRjOJw==
+  dependencies:
+    "@onflow/rlp" "0.0.3"
+    "@onflow/util-invariant" "0.0.0"
+
 "@onflow/util-invariant@0.0.0", "@onflow/util-invariant@^0.0.0":
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/@onflow/util-invariant/-/util-invariant-0.0.0.tgz#4bb62f7022b211a0538d4b854105fcbdc3782a11"

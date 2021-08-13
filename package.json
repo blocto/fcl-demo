@@ -4,16 +4,19 @@
   "dependencies": {
     "@onflow/fcl": "^0.0.71",
     "@onflow/types": "^0.0.4",
+    "@onflow/util-encode-key": "0.0.2",
+    "elliptic": "^6.5.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "sha3": "^2.1.4",
     "styled-components": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "dev-wallet": "PK=67ff105cfed60b0db9f95960851b9b96a73a03e972a09195a0efa709a828958b SERVICE_ADDR=f8d6e0586b0a20c7 fcl-wallet"
+    "dev-wallet": "PK=dce2f9c32e85149af59d08c1cb426ac535cf83d020f1f5b17d1cde81328b9692 SERVICE_ADDR=01cf0e2f2f715450 fcl-wallet"
   },
   "devDependencies": {
     "@onflow/dev-wallet": "^0.0.10"

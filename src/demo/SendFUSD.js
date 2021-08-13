@@ -7,8 +7,8 @@ import Header from '../components/Header'
 import Code from '../components/Code'
 
 const checkFusdAmount = `\
-import FungibleToken from 0x9a0766d93b6608b7
-import FUSD from 0xe223d8a629e49c68
+import FungibleToken from 0xFTADDRESS
+import FUSD from 0xFUSDADDRESS
 
 pub fun main(account: Address): UFix64 {
   let receiverRef = getAccount(account).getCapability(/public/fusdBalance)!
@@ -20,8 +20,8 @@ pub fun main(account: Address): UFix64 {
 `
 
 const simpleTransaction = `\
-import FungibleToken from 0x9a0766d93b6608b7
-import FUSD from 0xe223d8a629e49c68
+import FungibleToken from 0xFTADDRESS
+import FUSD from 0xFUSDADDRESS
 
 transaction(amount: UFix64, to: Address) {
 

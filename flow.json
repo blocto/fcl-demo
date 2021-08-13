@@ -11,6 +11,10 @@
 		"testnet": "access.devnet.nodes.onflow.org:9000"
 	},
 	"accounts": {
+		"testnet-user-acocunt": {
+			"address": "4b8505577ace5b24",
+			"key":
+		},
 		"admin-account": {
 			"address": "3ae53cb6e3f42a79",
 			"key": "12332967fd2bd75234ae9037dd4694c1f00baad63a10c35172bf65fbb8ad1111"
