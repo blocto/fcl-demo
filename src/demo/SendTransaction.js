@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
@@ -19,7 +19,7 @@ const SendTransaction = () => {
 
   const sendTransaction = async (event) => {
     event.preventDefault()
-    
+
     setStatus("Resolving...")
 
     const blockResponse = await fcl.send([
@@ -27,13 +27,14 @@ const SendTransaction = () => {
     ])
 
     const block = await fcl.decode(blockResponse)
-    
+
     try {
       const { transactionId } = await fcl.send([
         fcl.transaction(simpleTransaction),
         fcl.proposer(fcl.currentUser().authorization),
         fcl.payer(fcl.currentUser().authorization),
         fcl.ref(block.id),
+        fcl.limit(100),
       ])
 
       setStatus("Transaction sent, waiting for confirmation")
