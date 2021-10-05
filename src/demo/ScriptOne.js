@@ -1,5 +1,5 @@
-import React, {useState} from "react"
-import * as fcl from "@onflow/fcl"
+import React, { useState } from "react"
+import * as fcl from "@portto/fcl"
 
 import Card from '../components/Card'
 import Header from '../components/Header'
@@ -20,16 +20,16 @@ export default function ScriptOne() {
     const response = await fcl.send([
       fcl.script(scriptOne),
     ])
-    
+
     setData(await fcl.decode(response))
   }
 
   return (
     <Card>
       <Header>run script</Header>
-      
+
       <Code>{scriptOne}</Code>
-      
+
       <button onClick={runScript}>Run Script</button>
 
       {data && (

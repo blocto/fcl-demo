@@ -1,5 +1,5 @@
-import React, {useState} from "react"
-import * as fcl from "@onflow/fcl"
+import React, { useState } from "react"
+import * as fcl from "@portto/fcl"
 
 import Card from '../components/Card'
 import Header from '../components/Header'
@@ -18,9 +18,9 @@ const SignMessage = () => {
 
   const sendTransaction = async (event) => {
     event.preventDefault()
-    
+
     setStatus("Resolving...")
-    
+
     fcl
       .currentUser()
       .signUserMessage(Buffer.from(message).toString("hex"))

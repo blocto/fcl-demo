@@ -1,14 +1,15 @@
 import React, { useState } from "react"
-import * as fcl from "@onflow/fcl"
+import * as fcl from "@portto/fcl"
+import * as t from "@onflow/types"
 
 import Card from '../components/Card'
 import Header from '../components/Header'
 import Code from '../components/Code'
 
 const simpleTransaction = `\
-transaction {
-  execute {
-    log("A transaction happened")
+transaction(keyIndex: Int) {
+  prepare(signer: AuthAccount) {
+    signer.removePublicKey(keyIndex)
   }
 }
 `
@@ -31,7 +32,11 @@ const SendTransaction = () => {
     try {
       const { transactionId } = await fcl.send([
         fcl.transaction(simpleTransaction),
+        fcl.args([
+          fcl.arg(3, t.Int),
+        ]),
         fcl.proposer(fcl.currentUser().authorization),
+        fcl.authorizations([fcl.currentUser().authorization]),
         fcl.payer(fcl.currentUser().authorization),
         fcl.ref(block.id),
         fcl.limit(100),

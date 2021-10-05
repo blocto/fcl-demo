@@ -1,5 +1,5 @@
-import React, {useState} from "react"
-import * as fcl from "@onflow/fcl"
+import React, { useState } from "react"
+import * as fcl from "@portto/fcl"
 import * as t from "@onflow/types"
 
 import Card from '../components/Card'
@@ -36,7 +36,7 @@ const DeployContract = () => {
 
   const runTransaction = async (event) => {
     event.preventDefault()
-    
+
     setStatus("Resolving...")
 
     const blockResponse = await fcl.send([
@@ -44,7 +44,7 @@ const DeployContract = () => {
     ])
 
     const block = await fcl.decode(blockResponse)
-    
+
     try {
       const { transactionId } = await fcl.send([
         fcl.transaction(deployTransaction),
@@ -68,7 +68,7 @@ const DeployContract = () => {
         .tx({ transactionId })
         .subscribe(transaction => {
           setTransaction(transaction)
-          
+
           if (fcl.tx.isSealed(transaction)) {
             setStatus("Transaction is Sealed")
             unsub()

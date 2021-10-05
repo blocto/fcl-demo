@@ -1,5 +1,5 @@
-import React, {useState} from "react"
-import * as fcl from "@onflow/fcl"
+import React, { useState } from "react"
+import * as fcl from "@portto/fcl"
 
 import Card from '../components/Card'
 import Code from '../components/Code'
@@ -13,7 +13,7 @@ const GetLatestBlock = () => {
     const response = await fcl.send([
       fcl.getLatestBlock(),
     ])
-    
+
     setData(await fcl.decode(response))
   }
 
@@ -22,7 +22,7 @@ const GetLatestBlock = () => {
       <button onClick={runGetLatestBlock}>
         Get Latest Block
       </button>
-      
+
       {data && <Code>{JSON.stringify(data, null, 2)}</Code>}
     </Card>
   )

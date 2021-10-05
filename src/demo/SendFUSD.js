@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react"
-import * as fcl from "@onflow/fcl"
+import React, { useState, useEffect } from "react"
+import * as fcl from "@portto/fcl"
 import * as t from "@onflow/types"
 
 import Card from '../components/Card'
@@ -64,21 +64,21 @@ const SendFUSD = () => {
   useEffect(() =>
     fcl
       .currentUser()
-      .subscribe(user => setUser({...user}))
-  , [])
+      .subscribe(user => setUser({ ...user }))
+    , [])
 
   useEffect(() => {
-    const fetchData = async () => {  
+    const fetchData = async () => {
       if (!user || !user.addr) {
-        return 
+        return
       }
 
-      try { 
+      try {
         const response = await fcl.send([
           fcl.script(checkFusdAmount),
           fcl.args([fcl.arg(user.addr, t.Address)]),
         ]);
-    
+
         const balance = await fcl.decode(response);
 
         setBalance(balance)
@@ -106,7 +106,7 @@ const SendFUSD = () => {
 
   const sendTransaction = async (event) => {
     event.preventDefault()
-    
+
     setStatus("Resolving...")
 
     const blockResponse = await fcl.send([
@@ -114,7 +114,7 @@ const SendFUSD = () => {
     ])
 
     const block = await fcl.decode(blockResponse)
-    
+
     try {
       const { transactionId } = await fcl.send([
         fcl.transaction(simpleTransaction),
