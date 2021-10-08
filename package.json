@@ -2,7 +2,7 @@
   "name": "fcl-demo",
   "version": "0.1.0",
   "dependencies": {
-    "@portto/fcl": "^0.0.71",
+    "@onflow/fcl": "^0.0.77",
     "@onflow/types": "^0.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

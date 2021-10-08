@@ -1,18 +1,12 @@
 import React, { useState } from "react"
-import * as fcl from "@portto/fcl"
-import * as t from "@onflow/types"
+import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
 import Header from '../components/Header'
 import Code from '../components/Code'
 
-const simpleTransaction = `\
-transaction(keyIndex: Int) {
-  prepare(signer: AuthAccount) {
-    signer.removePublicKey(keyIndex)
-  }
-}
-`
+import authorization from '../services/authorization'
+import initFlowFest from '../transactions/initFlowFest'
 
 const SendTransaction = () => {
   const [status, setStatus] = useState("Not started")
@@ -31,15 +25,15 @@ const SendTransaction = () => {
 
     try {
       const { transactionId } = await fcl.send([
-        fcl.transaction(simpleTransaction),
-        fcl.args([
-          fcl.arg(3, t.Int),
-        ]),
+        fcl.transaction(initFlowFest),
         fcl.proposer(fcl.currentUser().authorization),
-        fcl.authorizations([fcl.currentUser().authorization]),
+        fcl.authorizations([
+          fcl.currentUser().authorization,
+          authorization
+        ]),
         fcl.payer(fcl.currentUser().authorization),
         fcl.ref(block.id),
-        fcl.limit(100),
+        fcl.limit(5000),
       ])
 
       setStatus("Transaction sent, waiting for confirmation")
@@ -64,7 +58,7 @@ const SendTransaction = () => {
     <Card>
       <Header>send transaction</Header>
 
-      <Code>{simpleTransaction}</Code>
+      <Code>{initFlowFest}</Code>
 
       <button onClick={sendTransaction}>
         Send
