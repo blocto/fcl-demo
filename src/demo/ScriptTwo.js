@@ -1,62 +1,78 @@
-import React, {useState} from "react"
+import React, { useEffect, useState } from "react"
 import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
-import Header from '../components/Header'
 import Code from '../components/Code'
-import Point from '../model/Point'
+import StakingInfo from '../model/StakingInfo'
 
 const scriptTwo = `\
-pub struct SomeStruct {
-  pub var x: Int
-  pub var y: Int
+import BloctoTokenStaking from 0x0f9df91c9121c460
 
-  init(x: Int, y: Int) {
-    self.x = x
-    self.y = y
+pub struct StakingInfo {
+  pub let totalStakers: Int
+  pub let epochTokenPayout: UFix64
+  pub let totalStaked: UFix64
+  pub let totalCommitted: UFix64
+  pub let totalUnstaked: UFix64
+  pub let totalRewarded: UFix64
+  pub let totalRequestedToUnstake: UFix64
+
+  init() {
+    let stakerIds = BloctoTokenStaking.getStakerIDs()
+
+    self.totalStakers = stakerIds.length
+    self.epochTokenPayout = BloctoTokenStaking.getEpochTokenPayout()
+    self.totalStaked = BloctoTokenStaking.getTotalStaked()
+
+    var totalCommitted: UFix64 = 0.0
+    var totalUnstaked: UFix64 = 0.0
+    var totalRewarded: UFix64 = 0.0
+    var totalRequestedToUnstake: UFix64 = 0.0
+
+    for stakerId in stakerIds {
+      let stakerInfo = BloctoTokenStaking.StakerInfo(stakerId)
+
+      totalCommitted = totalCommitted + stakerInfo.tokensCommitted
+      totalUnstaked = totalUnstaked + stakerInfo.tokensUnstaked
+      totalRewarded = totalRewarded + stakerInfo.tokensRewarded
+      totalRequestedToUnstake = totalRequestedToUnstake + stakerInfo.tokensRequestedToUnstake
+    }
+
+    self.totalCommitted = totalCommitted
+    self.totalUnstaked = totalUnstaked
+    self.totalRewarded = totalRewarded
+    self.totalRequestedToUnstake = totalRequestedToUnstake
   }
 }
 
-pub fun main(): [SomeStruct] {
-  return [SomeStruct(x: 1, y: 2), SomeStruct(x: 3, y: 4)]
+pub fun main(): StakingInfo {
+  return StakingInfo()
 }
 `;
 
 fcl.config()
-  .put("decoder.SomeStruct", data => new Point(data))
+  .put("decoder.StakingInfo", data => new StakingInfo(data))
 
 export default function ScriptTwo() {
   const [data, setData] = useState(null)
 
-  const runScript = async (event) => {
-    event.preventDefault()
-
+  const runScript = async () => {
     const response = await fcl.send([
       fcl.script(scriptTwo),
     ])
-    
+
     setData(await fcl.decode(response))
   }
 
+  useEffect(() => {
+    runScript()
+  }, [])
+
   return (
     <Card>
-      <Header>run script - with custom decoder</Header>
-
-      <Code>{scriptTwo}</Code>
-
-      <button onClick={runScript}>Run Script</button>
-      
       {data && (
         <Code>
-          {data.map((item, index) => (
-            <div key={index}>
-              {item.constructor.name} {index}
-              <br />
-              {JSON.stringify(item, null, 2)}
-              <br />
-              --
-            </div>
-          ))}
+          {JSON.stringify(data, null, 2)}
         </Code>
       )}
     </Card>
