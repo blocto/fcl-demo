@@ -1196,9 +1196,9 @@
   integrity sha512-D7exTVYs9oQMF5FiasJV4zYlEVgwdoHFprdpw1lofRDZLw57ZYM9q8qxm/aKpMjdv3vsMN9DjfcnPrCmMZTbTA==
 
 "@blocto/protobuf@^0.1.8":
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/@blocto/protobuf/-/protobuf-0.1.9.tgz#22356290eaa264139b8bd15d821ac0db53d0dcb6"
-  integrity sha512-r9APdIX7dECVUYSMhHtN8v1FALXcMPAL+9U4Yq1z5yYtSXGjU+R9mxkibD2XaqW7D9DNj9Sl/NmU9I8wuqPKpg==
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/@blocto/protobuf/-/protobuf-0.1.10.tgz#15c30c26833210bb943f40e022f7d1441661b9dc"
+  integrity sha512-Pf08C5TVu9/CW0Nkk0U47Fk0J8N5lw+li6HQqfxh6m/NcClKj/Nvr5gr5o5kCxXxgXax5rmnwNEnC9Y4/mysZQ==
   dependencies:
     "@blocto/google-protobuf" "^3.11.4"
     "@improbable-eng/grpc-web" "^0.12.0"
@@ -4283,9 +4283,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.378, electron-to-chromium@^1.3.896:
-  version "1.4.6"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.6.tgz#7bf0c03001bcdbd0fc57a45c6b23bc6432246ade"
-  integrity sha512-YDZAXP0P8USm0YoyIXWijxFT3tJHbt3WwY7CTQiK3+Ad6Ai/b9N4GqfDR107jfGilAfxl7Gkhb+h0KPoKXAgqw==
+  version "1.4.7"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.7.tgz#58e0b4ec9096ee1422e4d9e83ceeb05b0cf076eb"
+  integrity sha512-UPy2MsQw1OdcbxR7fvwWZH/rXcv+V26+uvQVHx0fGa1kqRfydtfOw+NMGAvZJ63hyaH4aEBxbhSEtqbpliSNWA==
 
 elliptic@^6.5.3, elliptic@^6.5.4:
   version "6.5.4"
