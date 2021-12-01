@@ -1196,9 +1196,9 @@
   integrity sha512-D7exTVYs9oQMF5FiasJV4zYlEVgwdoHFprdpw1lofRDZLw57ZYM9q8qxm/aKpMjdv3vsMN9DjfcnPrCmMZTbTA==
 
 "@blocto/protobuf@^0.1.8":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@blocto/protobuf/-/protobuf-0.1.8.tgz#2c0059dcca4178bef1fa124e938ea2441dc463d9"
-  integrity sha512-VHvUUmQod07JmhWzg6oCBwHCvEX7u7HegrKPitUAxHtM1+5otW3PAu7DDui23VMUngyHcpgKzNfsw0NmJH6e4A==
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/@blocto/protobuf/-/protobuf-0.1.9.tgz#22356290eaa264139b8bd15d821ac0db53d0dcb6"
+  integrity sha512-r9APdIX7dECVUYSMhHtN8v1FALXcMPAL+9U4Yq1z5yYtSXGjU+R9mxkibD2XaqW7D9DNj9Sl/NmU9I8wuqPKpg==
   dependencies:
     "@blocto/google-protobuf" "^3.11.4"
     "@improbable-eng/grpc-web" "^0.12.0"
