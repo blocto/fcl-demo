@@ -1175,6 +1175,35 @@
     "@babel/helper-validator-identifier" "^7.15.7"
     to-fast-properties "^2.0.0"
 
+"@blocto/fcl@^0.0.78-alpha.8":
+  version "0.0.78-alpha.8"
+  resolved "https://registry.yarnpkg.com/@blocto/fcl/-/fcl-0.0.78-alpha.8.tgz#dd9ec1dceb5525a7d40dac6368b0c5413e1a6612"
+  integrity sha512-2tu7yxBopuzFSFBtV2Beg9QRaJMGtZ5QlonKt0VZmtsOtGTs1OI6R7g/+MiddWKQIkfS+iQT/vab+hfDdSj9WA==
+  dependencies:
+    "@onflow/interaction" "0.0.11"
+    "@onflow/rlp" "0.0.3"
+    "@onflow/types" "0.0.6"
+    "@onflow/util-actor" "0.0.2"
+    "@onflow/util-address" "0.0.0"
+    "@onflow/util-invariant" "0.0.0"
+    "@onflow/util-template" "0.0.1"
+    "@onflow/util-uid" "0.0.1"
+    "@portto/sdk" "0.0.56-alpha.1"
+
+"@blocto/google-protobuf@^3.11.4":
+  version "3.19.1"
+  resolved "https://registry.yarnpkg.com/@blocto/google-protobuf/-/google-protobuf-3.19.1.tgz#e3e589184350b450222f20f77db1138b51aa4e7a"
+  integrity sha512-D7exTVYs9oQMF5FiasJV4zYlEVgwdoHFprdpw1lofRDZLw57ZYM9q8qxm/aKpMjdv3vsMN9DjfcnPrCmMZTbTA==
+
+"@blocto/protobuf@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@blocto/protobuf/-/protobuf-0.1.8.tgz#2c0059dcca4178bef1fa124e938ea2441dc463d9"
+  integrity sha512-VHvUUmQod07JmhWzg6oCBwHCvEX7u7HegrKPitUAxHtM1+5otW3PAu7DDui23VMUngyHcpgKzNfsw0NmJH6e4A==
+  dependencies:
+    "@blocto/google-protobuf" "^3.11.4"
+    "@improbable-eng/grpc-web" "^0.12.0"
+    elliptic "^6.5.4"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -1490,21 +1519,6 @@
     "@onflow/util-actor" "0.0.2"
     queue-microtask "1.1.2"
 
-"@onflow/fcl@^0.0.77":
-  version "0.0.77"
-  resolved "https://registry.yarnpkg.com/@onflow/fcl/-/fcl-0.0.77.tgz#2a2da9ec8f90e0cf012d9a459a3472b57e416549"
-  integrity sha512-hgFW51Va29KwlzhDy6Fm15UesfXluRTR5RJn+zrm5d5HFfkquaxKOnMGT5waKVFn5u4THQIE6v+OnaDDchGNpg==
-  dependencies:
-    "@onflow/interaction" "0.0.11"
-    "@onflow/rlp" "0.0.3"
-    "@onflow/sdk" "^0.0.54"
-    "@onflow/types" "^0.0.4"
-    "@onflow/util-actor" "0.0.2"
-    "@onflow/util-address" "0.0.0"
-    "@onflow/util-invariant" "0.0.0"
-    "@onflow/util-template" "0.0.1"
-    "@onflow/util-uid" "0.0.1"
-
 "@onflow/interaction@0.0.10":
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/@onflow/interaction/-/interaction-0.0.10.tgz#0809aba2ac3a4b1a7c97de4089e38bbf8d5794b8"
@@ -1519,14 +1533,6 @@
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/@onflow/protobuf/-/protobuf-0.1.6.tgz#40b3fea8a8c41318085a8f6c018e1d185734aa75"
   integrity sha512-VpPffJqrpTKQVMxB527Ehix3YBnId36Iu8AQdO7aFA3HOhLWIPr6iNTlHhUEtlnQv2vbKnrcJqTX8y6tY1HgMA==
-  dependencies:
-    "@improbable-eng/grpc-web" "^0.12.0"
-    google-protobuf "^3.11.4"
-
-"@onflow/protobuf@^0.1.8":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@onflow/protobuf/-/protobuf-0.1.8.tgz#1b790340efaa222e6e489d818ff426ce4739805d"
-  integrity sha512-Taww31RrpJMr3fkWgF2HR2TcRbAoPbMjwRYt9IlYknyRX5YTzpaU35petdqDRfxwmfY9mRxHbiInujX4aV02Hw==
   dependencies:
     "@improbable-eng/grpc-web" "^0.12.0"
     google-protobuf "^3.11.4"
@@ -1552,21 +1558,6 @@
     "@onflow/send" "0.0.20"
     "@qvvg/templar" "0.0.1"
 
-"@onflow/sdk@^0.0.54":
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/@onflow/sdk/-/sdk-0.0.54.tgz#e5aae23c0a1f3707e47ddab1ca2c1d78e5e75d7a"
-  integrity sha512-4kC1kpxUvWUvWs7kymWX6bJjmch155XmNc3GRT3ZLeCQPIYbEYGVagH9AJzdmBRvxgFiiNpPJaNAjD3NusgCLQ==
-  dependencies:
-    "@improbable-eng/grpc-web" "^0.14.0"
-    "@improbable-eng/grpc-web-node-http-transport" "^0.14.0"
-    "@onflow/protobuf" "^0.1.8"
-    "@onflow/rlp" "^0.0.3"
-    "@onflow/util-actor" "0.0.2"
-    "@onflow/util-address" "^0.0.0"
-    "@onflow/util-invariant" "^0.0.0"
-    "@onflow/util-template" "0.0.1"
-    deepmerge "^4.2.2"
-
 "@onflow/send@0.0.20":
   version "0.0.20"
   resolved "https://registry.yarnpkg.com/@onflow/send/-/send-0.0.20.tgz#d1d8382892994952672a46cc00e6aab68567aa9b"
@@ -1587,6 +1578,11 @@
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@onflow/types/-/types-0.0.2.tgz#ed2bb8c34d2608d3503defcb19c4c1f5b25f5d96"
   integrity sha512-pGBuq7/slH2Xq5drKxFjbppeq0Kq6WLuyOV8lMYb57DPZSfbKnEOBubuq3y1N4kTpqHr+6g/VMqg3O/T20QZxg==
+
+"@onflow/types@0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@onflow/types/-/types-0.0.6.tgz#4fb20754565da4995a1b0b71b01210947f899841"
+  integrity sha512-2eBrmqiFO37EUOJvzksygP8Wu6lL/m9az36AF0qYdGQW/79KGCHBCchUsIzxyGt8UDXl/dgnIcMkiTH7tWZqXg==
 
 "@onflow/types@^0.0.4":
   version "0.0.4"
@@ -1624,6 +1620,22 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@phc/format/-/format-1.0.0.tgz#b5627003b3216dc4362125b13f48a4daa76680e4"
   integrity sha512-m7X9U6BG2+J+R1lSOdCiITLLrxm+cWlNI3HUFA92oLO77ObGNzaKdh8pMLqdZcshtkKuV84olNNXDfMc4FezBQ==
+
+"@portto/sdk@0.0.56-alpha.1":
+  version "0.0.56-alpha.1"
+  resolved "https://registry.yarnpkg.com/@portto/sdk/-/sdk-0.0.56-alpha.1.tgz#7c5dfddab3aabe9a411b1c0c11f213f01b25f2f8"
+  integrity sha512-EqNS5k0FMWEESn0Fn1jU0ygFkhdhQpDdmP5RjN7cDMGaYcoCG69uEArL/m4dk0JRnQ/9rITtQffTH16KSycudQ==
+  dependencies:
+    "@blocto/protobuf" "^0.1.8"
+    "@improbable-eng/grpc-web" "^0.14.0"
+    "@improbable-eng/grpc-web-node-http-transport" "^0.14.0"
+    "@onflow/rlp" "^0.0.3"
+    "@onflow/util-actor" "0.0.2"
+    "@onflow/util-address" "^0.0.0"
+    "@onflow/util-invariant" "^0.0.0"
+    "@onflow/util-template" "0.0.1"
+    deepmerge "^4.2.2"
+    sha3 "^2.1.4"
 
 "@qvvg/templar@0.0.1":
   version "0.0.1"
@@ -4275,7 +4287,7 @@ electron-to-chromium@^1.3.378, electron-to-chromium@^1.3.896:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.6.tgz#7bf0c03001bcdbd0fc57a45c6b23bc6432246ade"
   integrity sha512-YDZAXP0P8USm0YoyIXWijxFT3tJHbt3WwY7CTQiK3+Ad6Ai/b9N4GqfDR107jfGilAfxl7Gkhb+h0KPoKXAgqw==
 
-elliptic@^6.5.3:
+elliptic@^6.5.3, elliptic@^6.5.4:
   version "6.5.4"
   resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.5.4.tgz#da37cebd31e79a1367e941b592ed1fbebd58abbb"
   integrity sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ==
@@ -10168,7 +10180,7 @@ sha.js@^2.4.0, sha.js@^2.4.8:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-sha3@^2.1.2:
+sha3@^2.1.2, sha3@^2.1.4:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/sha3/-/sha3-2.1.4.tgz#000fac0fe7c2feac1f48a25e7a31b52a6492cc8f"
   integrity sha512-S8cNxbyb0UGUM2VhRD4Poe5N58gJnJsLJ5vC7FYWGUmGhcsj4++WaIOBFVDxlG0W3To6xBuiRh+i0Qp2oNCOtg==

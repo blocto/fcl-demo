@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react"
-import * as fcl from "@onflow/fcl"
+import React, { useState, useEffect } from "react"
+import * as fcl from "@blocto/fcl"
 
 import Card from '../components/Card'
 import Header from '../components/Header'
@@ -11,13 +11,13 @@ const UserInfo = () => {
   useEffect(() =>
     fcl
       .currentUser()
-      .subscribe(user => setUser({...user}))
-  , [])
+      .subscribe(user => setUser({ ...user }))
+    , [])
 
   return (
     <Card>
       <Header>User information</Header>
-      
+
       {user && <Code>{JSON.stringify(user, null, 2)}</Code>}
     </Card>
   )

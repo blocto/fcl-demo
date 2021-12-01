@@ -1,5 +1,5 @@
-import React, {useState} from "react"
-import * as fcl from "@onflow/fcl"
+import React, { useState } from "react"
+import * as fcl from "@blocto/fcl"
 
 import Card from '../components/Card'
 import Header from '../components/Header'
@@ -36,7 +36,7 @@ const GetAccount = () => {
       <button onClick={runGetAccount}>
         Lookup Account
       </button>
-      
+
       {data && <Code>{JSON.stringify(data, null, 2)}</Code>}
     </Card>
   )

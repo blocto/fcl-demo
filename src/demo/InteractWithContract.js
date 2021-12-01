@@ -1,5 +1,5 @@
-import React, {useState} from "react"
-import * as fcl from "@onflow/fcl"
+import React, { useState } from "react"
+import * as fcl from "@blocto/fcl"
 
 import Card from '../components/Card'
 import Header from '../components/Header'
@@ -28,7 +28,7 @@ const InteractWithContract = () => {
 
   const runTransaction = async (event) => {
     event.preventDefault()
-    
+
     setStatus("Resolving...")
 
     const blockResponse = await fcl.send([
@@ -36,7 +36,7 @@ const InteractWithContract = () => {
     ])
 
     const block = await fcl.decode(blockResponse)
-    
+
     try {
       const { transactionId } = await fcl.send([
         fcl.transaction(simpleTransaction(addr)),
