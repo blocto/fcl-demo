@@ -28,6 +28,7 @@ pub struct StakingInfo {
     var totalUnstaked: UFix64 = 0.0
     var totalRewarded: UFix64 = 0.0
     var totalRequestedToUnstake: UFix64 = 0.0
+    var index: Int = 0
 
     for stakerId in stakerIds {
       let stakerInfo = BloctoTokenStaking.StakerInfo(stakerId)
@@ -36,6 +37,11 @@ pub struct StakingInfo {
       totalUnstaked = totalUnstaked + stakerInfo.tokensUnstaked
       totalRewarded = totalRewarded + stakerInfo.tokensRewarded
       totalRequestedToUnstake = totalRequestedToUnstake + stakerInfo.tokensRequestedToUnstake
+
+      index = index + 1
+      if index > 5000 {
+        break
+      }
     }
 
     self.totalCommitted = totalCommitted
