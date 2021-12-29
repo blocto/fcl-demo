@@ -194,7 +194,7 @@ const SendFUSD = () => {
 
       <Code>Status: {status}</Code>
 
-      {transactionId && <a href={`https://flowscan.org/transaction/${transactionId}`} target="_blank">Check on Flowscan</a>}
+      {transactionId && <a href={`https://flowscan.org/transaction/${transactionId}`} target="_blank" rel="noopener noreferrer">Check on Flowscan</a>}
 
       {transaction && <Code>{JSON.stringify(transaction, null, 2)}</Code>}
     </Card>
