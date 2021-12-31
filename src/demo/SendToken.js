@@ -80,7 +80,7 @@ const SendFUSD = () => {
           throw Error('failed parsing input')
         }
 
-        address = address.trim()
+        address = address.trim().replace('\b', '')
         amount = parseFloat(amount).toFixed(8)
 
         if (amount === 'NaN') {
