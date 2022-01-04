@@ -7,12 +7,14 @@ import Header from '../components/Header'
 import Code from '../components/Code'
 
 import checkScripts from "./checkScripts"
+import checkMultipleScripts from "./checkMultipleScripts"
 import transferScripts from "./transferScripts"
 
 const SendFUSD = () => {
   const [token, setToken] = useState('FLOW')
   const [balance, setBalance] = useState(0)
   const [addresses, setAddresses] = useState([])
+  const [badAccounts, setBadAccounts] = useState([])
   const [amounts, setAmounts] = useState([])
   const [status, setStatus] = useState("Not started")
   const [error, setError] = useState(null)
@@ -52,6 +54,38 @@ const SendFUSD = () => {
       fetchData()
     }
   }, [user, token])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!addresses || !addresses.length) {
+        return
+      }
+
+      const script = checkMultipleScripts[token]
+
+      try {
+        const response = await fcl.send([
+          fcl.script(script),
+          fcl.args([
+            fcl.arg(
+              addresses,
+              t.Array(t.Address)
+            ),
+          ]),
+        ]);
+
+        const newBadAccounts = await fcl.decode(response);
+
+        setBadAccounts(newBadAccounts)
+      } catch (error) {
+        setBadAccounts([])
+      }
+    }
+
+    if (addresses && addresses.length) {
+      fetchData()
+    }
+  }, [addresses, token])
 
   const updateFile = (event) => {
     const reader = new FileReader()
@@ -191,6 +225,8 @@ const SendFUSD = () => {
       </button>
 
       {error && <Code>{error}</Code>}
+
+      {badAccounts.length > 0 && <Code>Bad Accounts:<br />{badAccounts.join('\n')}</Code>}
 
       <Code>Status: {status}</Code>
 
