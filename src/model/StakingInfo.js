@@ -8,13 +8,13 @@ class StakingInfo {
     totalRewarded,
     totalRequestedToUnstake,
   }) {
-    this.totalStakers = totalStakers
-    this.rewardsForNextEpoch = epochTokenPayout
-    this.totalStaked = totalStaked
-    this.totalCommitted = totalCommitted
-    this.totalUnstaked = totalUnstaked
-    this.totalRewarded = totalRewarded
-    this.totalRequestedToUnstake = totalRequestedToUnstake
+    this.totalStakers = Number(totalStakers)
+    this.rewardsForNextEpoch = Number(epochTokenPayout)
+    this.totalStaked = Number(totalStaked)
+    this.totalCommitted = Number(totalCommitted)
+    this.totalUnstaked = Number(totalUnstaked)
+    this.totalRewarded = Number(totalRewarded)
+    this.totalRequestedToUnstake = Number(totalRequestedToUnstake)
   }
 }
 
