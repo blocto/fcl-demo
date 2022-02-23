@@ -28,10 +28,21 @@ pub fun main(address: Address): UFix64 {
   return balanceRef?.balance ?? 0.0
 }`
 
+const checkSTARLY = `\
+import FungibleToken from 0xf233dcee88fe0abe
+
+pub fun main(address: Address): UFix64 {
+  let balanceRef = getAccount(address).getCapability(/public/starlyTokenBalance)!
+    .borrow<&{FungibleToken.Balance}>()
+
+  return balanceRef?.balance ?? 0.0
+}`
+
 const checkScripts = {
   FLOW: checkFLOW,
   FUSD: checkFUSD,
   BLT: checkBLT,
+  STARLY: checkSTARLY,
 }
 
 export default checkScripts

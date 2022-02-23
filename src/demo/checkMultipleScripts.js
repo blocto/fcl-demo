@@ -58,10 +58,38 @@ pub fun main(addresses: [Address]): [Address] {
   return badAccounts
 }`
 
+const checkSTARLY = `\
+import FungibleToken from 0xf233dcee88fe0abe
+import StarlyToken from 0x142fa6570b62fd97
+
+pub fun main(addresses: [Address]): [Address] {
+  var badAccounts: [Address] = []
+  
+  var index = 0
+  while index < addresses.length {
+      
+    // Get the recipient's public account object
+    let recipient = getAccount(addresses[index])
+
+    // Get a reference to the recipient's Receiver
+    let receiverRef = recipient.getCapability(StarlyToken.TokenPublicReceiverPath)
+      .borrow<&{FungibleToken.Receiver}>()
+
+    if receiverRef == nil {
+      badAccounts.append(addresses[index])
+    }
+
+    index = index + 1
+  }
+
+  return badAccounts
+}`
+
 const checkScripts = {
   FLOW: checkFLOW,
   FUSD: checkFUSD,
   BLT: checkBLT,
+  STARLY: checkSTARLY,
 }
 
 export default checkScripts

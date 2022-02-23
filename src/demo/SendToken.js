@@ -201,6 +201,7 @@ const SendFUSD = () => {
         <option value="FLOW">FLOW</option>
         <option value="FUSD">FUSD</option>
         <option value="BLT">BLT</option>
+        <option value="STARLY">STARLY</option>
       </select>
 
       <Code>Balance: {balance}</Code>

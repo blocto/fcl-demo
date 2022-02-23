@@ -116,10 +116,51 @@ transaction(addresses: [Address], amounts: [UFix64]) {
 }
 `
 
+const transferSTARLY = `\
+import FungibleToken from 0xf233dcee88fe0abe
+import StarlyToken from 0x142fa6570b62fd97
+
+transaction(addresses: [Address], amounts: [UFix64]) {
+  let vaultRef: &StarlyToken.Vault
+
+  prepare(signer: AuthAccount) {
+    assert(
+      addresses.length == amounts.length,
+      message: "Input length mismatch"
+    )
+
+    // Get a reference to the signer's stored vault
+    self.vaultRef = signer.borrow<&StarlyToken.Vault>(from: StarlyToken.TokenStoragePath)
+      ?? panic("Could not borrow reference to the owner's Vault!")
+  }
+
+  execute {
+    // Send STARLY to all addresses in the list
+    var index = 0
+    while index < addresses.length {
+        
+      // Get the recipient's public account object
+      let recipient = getAccount(addresses[index])
+
+      // Get a reference to the recipient's Receiver
+      let receiverRef = recipient.getCapability(StarlyToken.TokenPublicReceiverPath)
+        .borrow<&{FungibleToken.Receiver}>()
+        ?? panic("Could not borrow receiver reference to the recipient's Vault: ".concat(addresses[index].toString()))
+
+      // Deposit the withdrawn tokens in the recipient's receiver
+      receiverRef.deposit(from: <-self.vaultRef.withdraw(amount: amounts[index]))
+
+      index = index + 1
+    }
+  }
+}
+`
+
 const transferScripts = {
   FLOW: transferFLOW,
   FUSD: transferFUSD,
   BLT: transferBLT,
+  STARLY: transferSTARLY,
 }
 
 export default transferScripts
