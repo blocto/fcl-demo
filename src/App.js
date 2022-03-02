@@ -1,47 +1,29 @@
 import React from 'react';
+import { Routes, Route } from "react-router-dom";
 import styled from 'styled-components'
 
-import Section from './components/Section'
-import Header from './components/Header'
-
-import GetLatestBlock from './demo/GetLatestBlock'
-import GetAccount from './demo/GetAccount'
-import ScriptOne from "./demo/ScriptOne"
-import ScriptTwo from './demo/ScriptTwo'
-import Authenticate from './demo/Authenticate'
-import UserInfo from './demo/UserInfo'
-import SendTransaction from './demo/SendTransaction'
-import SignMessage from './demo/SignMessage'
-import SendFUSD from './demo/SendFUSD'
-import DeployContract from './demo/DeployContract'
-import InteractWithContract from './demo/InteractWithContract'
+import Flow from './flow';
 
 const Wrapper = styled.div`
-  font-size: 13px;
-  font-family: Arial, Helvetica, sans-serif;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 100px min(8.3%, 120px);
 `;
 
 function App() {
   return (
     <Wrapper>
-      <Section>
-        <Header>READ from FCL</Header>
-        <GetLatestBlock />
-        <GetAccount />
-        <ScriptOne />
-        <ScriptTwo />
-      </Section>
+      <h1>
+        Blocto SDK Demo Site
+      </h1>
 
-      <Section>
-        <Header>FCL wallet interactions</Header>
-        <Authenticate />
-        <UserInfo />
-        <SendTransaction />
-        <SignMessage />
-        <SendFUSD />
-        <DeployContract />
-        <InteractWithContract />
-      </Section>
+      <Routes>
+        <Route path="/" element={<Flow />} />
+        <Route path="flow" element={<Flow />} />
+        <Route path="ethereum" element={<div>ethereum</div>} />
+        <Route path="bsc" element={<div>bsc</div>} />
+        <Route path="solana" element={<div>solana</div>} />
+      </Routes>
     </Wrapper>
   );
 }

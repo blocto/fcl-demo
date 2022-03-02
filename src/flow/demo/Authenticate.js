@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import * as fcl from "@blocto/fcl"
 
-import Card from '../components/Card'
+import Card from '../../components/Card'
 
 const SignInOutButton = ({ user: { loggedIn } }) => {
   const signInOrOut = async (event) => {

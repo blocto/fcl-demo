@@ -1,40 +1,23 @@
 import React, { useState } from "react"
 import * as fcl from "@blocto/fcl"
-import * as t from "@onflow/types"
 
-import Card from '../components/Card'
-import Header from '../components/Header'
-import Code from '../components/Code'
+import Card from '../../components/Card'
+import Header from '../../components/Header'
+import Code from '../../components/Code'
 
-const deployTransaction = `\
-transaction(code: String) {
-  prepare(acct: AuthAccount) {
-    acct.contracts.add(name: "HelloWorld", code: code.decodeHex())
+const simpleTransaction = `\
+transaction {
+  execute {
+    log("A transaction happened")
   }
 }
 `
 
-const simpleContract = `\
-pub contract HelloWorld {
-  pub let greeting: String
-  pub event HelloEvent(message: String)
-
-  init() {
-    self.greeting = "Hello, World!"
-  }
-
-  pub fun hello(message: String): String {
-    emit HelloEvent(message: message)
-    return self.greeting
-  }
-}
-`
-
-const DeployContract = () => {
+const SendTransaction = () => {
   const [status, setStatus] = useState("Not started")
   const [transaction, setTransaction] = useState(null)
 
-  const runTransaction = async (event) => {
+  const sendTransaction = async (event) => {
     event.preventDefault()
 
     setStatus("Resolving...")
@@ -47,19 +30,11 @@ const DeployContract = () => {
 
     try {
       const { transactionId } = await fcl.send([
-        fcl.transaction(deployTransaction),
-        fcl.args([
-          fcl.arg(
-            Buffer.from(simpleContract, "utf8").toString("hex"),
-            t.String
-          )
-        ]),
+        fcl.transaction(simpleTransaction),
         fcl.proposer(fcl.currentUser().authorization),
-        fcl.authorizations([
-          fcl.currentUser().authorization
-        ]),
         fcl.payer(fcl.currentUser().authorization),
         fcl.ref(block.id),
+        fcl.limit(100),
       ])
 
       setStatus("Transaction sent, waiting for confirmation")
@@ -82,12 +57,12 @@ const DeployContract = () => {
 
   return (
     <Card>
-      <Header>deploy contract</Header>
+      <Header>send transaction</Header>
 
-      <Code>{simpleContract}</Code>
+      <Code>{simpleTransaction}</Code>
 
-      <button onClick={runTransaction}>
-        Deploy Contract
+      <button onClick={sendTransaction}>
+        Send
       </button>
 
       <Code>Status: {status}</Code>
@@ -97,4 +72,4 @@ const DeployContract = () => {
   )
 }
 
-export default DeployContract
+export default SendTransaction

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 import * as fcl from "@blocto/fcl"
 
-import Card from '../components/Card'
-import Header from '../components/Header'
-import Code from '../components/Code'
+import Card from '../../components/Card'
+import Header from '../../components/Header'
+import Code from '../../components/Code'
 
 const UserInfo = () => {
   const [user, setUser] = useState(null)

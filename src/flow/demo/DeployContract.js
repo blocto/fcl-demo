@@ -1,30 +1,38 @@
 import React, { useState } from "react"
 import * as fcl from "@blocto/fcl"
+import * as t from "@onflow/types"
 
-import Card from '../components/Card'
-import Header from '../components/Header'
-import Code from '../components/Code'
+import Card from '../../components/Card'
+import Header from '../../components/Header'
+import Code from '../../components/Code'
 
-const simpleTransaction = address => `\
-import HelloWorld from 0x${address.replace('0x', '')}
-
-transaction {
-  execute {
-    HelloWorld.hello(message: "Hello from visitor")
+const deployTransaction = `\
+transaction(code: String) {
+  prepare(acct: AuthAccount) {
+    acct.contracts.add(name: "HelloWorld", code: code.decodeHex())
   }
 }
 `
 
-const InteractWithContract = () => {
-  const [addr, setAddr] = useState(null)
+const simpleContract = `\
+pub contract HelloWorld {
+  pub let greeting: String
+  pub event HelloEvent(message: String)
+
+  init() {
+    self.greeting = "Hello, World!"
+  }
+
+  pub fun hello(message: String): String {
+    emit HelloEvent(message: message)
+    return self.greeting
+  }
+}
+`
+
+const DeployContract = () => {
   const [status, setStatus] = useState("Not started")
   const [transaction, setTransaction] = useState(null)
-
-  const updateAddr = (event) => {
-    event.preventDefault();
-
-    setAddr(event.target.value)
-  }
 
   const runTransaction = async (event) => {
     event.preventDefault()
@@ -39,8 +47,17 @@ const InteractWithContract = () => {
 
     try {
       const { transactionId } = await fcl.send([
-        fcl.transaction(simpleTransaction(addr)),
+        fcl.transaction(deployTransaction),
+        fcl.args([
+          fcl.arg(
+            Buffer.from(simpleContract, "utf8").toString("hex"),
+            t.String
+          )
+        ]),
         fcl.proposer(fcl.currentUser().authorization),
+        fcl.authorizations([
+          fcl.currentUser().authorization
+        ]),
         fcl.payer(fcl.currentUser().authorization),
         fcl.ref(block.id),
       ])
@@ -48,9 +65,7 @@ const InteractWithContract = () => {
       setStatus("Transaction sent, waiting for confirmation")
 
       const unsub = fcl
-        .tx({
-          transactionId,
-        })
+        .tx({ transactionId })
         .subscribe(transaction => {
           setTransaction(transaction)
 
@@ -67,17 +82,12 @@ const InteractWithContract = () => {
 
   return (
     <Card>
-      <Header>interact with contract</Header>
+      <Header>deploy contract</Header>
 
-      <input
-        placeholder="Enter Contract address"
-        onChange={updateAddr}
-      />
-
-      <Code>{simpleTransaction(addr || '')}</Code>
+      <Code>{simpleContract}</Code>
 
       <button onClick={runTransaction}>
-        Run Transaction
+        Deploy Contract
       </button>
 
       <Code>Status: {status}</Code>
@@ -87,4 +97,4 @@ const InteractWithContract = () => {
   )
 }
 
-export default InteractWithContract
+export default DeployContract

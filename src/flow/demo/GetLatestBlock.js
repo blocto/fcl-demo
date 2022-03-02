@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import * as fcl from "@blocto/fcl"
 
-import Card from '../components/Card'
-import Code from '../components/Code'
+import Card from '../../components/Card'
+import Code from '../../components/Code'
 
 const GetLatestBlock = () => {
   const [data, setData] = useState(null)

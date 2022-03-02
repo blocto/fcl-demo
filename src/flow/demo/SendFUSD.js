@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react"
 import * as fcl from "@blocto/fcl"
 import * as t from "@onflow/types"
 
-import Card from '../components/Card'
-import Header from '../components/Header'
-import Code from '../components/Code'
+import Card from '../../components/Card'
+import Header from '../../components/Header'
+import Code from '../../components/Code'
 
 const checkFusdAmount = `\
 import FungibleToken from 0x9a0766d93b6608b7

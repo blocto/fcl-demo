@@ -1,23 +1,32 @@
 import React, { useState } from "react"
 import * as fcl from "@blocto/fcl"
 
-import Card from '../components/Card'
-import Header from '../components/Header'
-import Code from '../components/Code'
+import Card from '../../components/Card'
+import Header from '../../components/Header'
+import Code from '../../components/Code'
 
-const simpleTransaction = `\
+const simpleTransaction = address => `\
+import HelloWorld from 0x${address.replace('0x', '')}
+
 transaction {
   execute {
-    log("A transaction happened")
+    HelloWorld.hello(message: "Hello from visitor")
   }
 }
 `
 
-const SendTransaction = () => {
+const InteractWithContract = () => {
+  const [addr, setAddr] = useState(null)
   const [status, setStatus] = useState("Not started")
   const [transaction, setTransaction] = useState(null)
 
-  const sendTransaction = async (event) => {
+  const updateAddr = (event) => {
+    event.preventDefault();
+
+    setAddr(event.target.value)
+  }
+
+  const runTransaction = async (event) => {
     event.preventDefault()
 
     setStatus("Resolving...")
@@ -30,17 +39,18 @@ const SendTransaction = () => {
 
     try {
       const { transactionId } = await fcl.send([
-        fcl.transaction(simpleTransaction),
+        fcl.transaction(simpleTransaction(addr)),
         fcl.proposer(fcl.currentUser().authorization),
         fcl.payer(fcl.currentUser().authorization),
         fcl.ref(block.id),
-        fcl.limit(100),
       ])
 
       setStatus("Transaction sent, waiting for confirmation")
 
       const unsub = fcl
-        .tx({ transactionId })
+        .tx({
+          transactionId,
+        })
         .subscribe(transaction => {
           setTransaction(transaction)
 
@@ -57,12 +67,17 @@ const SendTransaction = () => {
 
   return (
     <Card>
-      <Header>send transaction</Header>
+      <Header>interact with contract</Header>
 
-      <Code>{simpleTransaction}</Code>
+      <input
+        placeholder="Enter Contract address"
+        onChange={updateAddr}
+      />
 
-      <button onClick={sendTransaction}>
-        Send
+      <Code>{simpleTransaction(addr || '')}</Code>
+
+      <button onClick={runTransaction}>
+        Run Transaction
       </button>
 
       <Code>Status: {status}</Code>
@@ -72,4 +87,4 @@ const SendTransaction = () => {
   )
 }
 
-export default SendTransaction
+export default InteractWithContract
