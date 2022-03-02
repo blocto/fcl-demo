@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "dependencies": {
     "@blocto/fcl": "^0.0.78-alpha.8",
+    "@blocto/sdk": "^0.2.21",
     "@onflow/types": "^0.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "6",
     "react-scripts": "3.4.1",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "web3": "^1.7.0"
   },
   "scripts": {
     "start": "react-scripts start",
