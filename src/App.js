@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import styled from 'styled-components'
 
 import { GlobalStyle } from './globalStyle';
+import Select from './components/Select';
 import Flow from './flow';
 
 const Wrapper = styled.div`
@@ -18,6 +19,8 @@ function App() {
       <h1>
         Blocto SDK Demo Site
       </h1>
+
+      <Select/>
 
       <Routes>
         <Route path="/" element={<Flow />} />
