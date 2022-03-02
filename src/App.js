@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from "react-router-dom";
 import styled from 'styled-components'
 
+import { GlobalStyle } from './globalStyle';
 import Flow from './flow';
 
 const Wrapper = styled.div`
@@ -13,6 +14,7 @@ const Wrapper = styled.div`
 function App() {
   return (
     <Wrapper>
+      <GlobalStyle/>
       <h1>
         Blocto SDK Demo Site
       </h1>
