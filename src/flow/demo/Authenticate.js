@@ -21,7 +21,7 @@ const SignInOutButton = ({ user: { loggedIn } }) => {
   )
 }
 
-const CurrentUser = () => {
+const Authenticate = () => {
   const [user, setUser] = useState({})
 
   useEffect(() =>
@@ -37,4 +37,4 @@ const CurrentUser = () => {
   )
 }
 
-export default CurrentUser
+export default Authenticate
