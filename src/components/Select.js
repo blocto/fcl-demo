@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation,useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from 'styled-components';
 
 import ArrowDown from './ArrowDown';
@@ -52,15 +52,10 @@ const Option = styled.div`
 
 function Select() {
   const { pathname } = useLocation();
-  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClickSelect = () => {
     setIsOpen(prevIsOpen => !prevIsOpen);
-  }
-
-  const handleSelectChain = (path) => () => {
-    navigate(path);
   };
   
   const currentRouteName = routes.find(route => route.path === pathname)?.name ?? routes.find(route => route.index)?.name;
@@ -70,9 +65,11 @@ function Select() {
       <ArrowDown />
       <Options isOpen={isOpen}>
         {routes.map((route) => (
-          <Option key={route.name} isCurrentChain={currentRouteName === route.name} onClick={handleSelectChain(route.path)}>
-            {route.name}
-          </Option>
+          <Link key={route.name} to={route.path}>
+            <Option isCurrentChain={currentRouteName === route.name}>
+              {route.name}
+            </Option>
+          </Link>
         ))}
       </Options>
     </SelectComp>
