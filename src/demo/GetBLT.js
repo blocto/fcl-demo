@@ -101,7 +101,7 @@ const SetupVault = () => {
 
     const auth = getAuth(
       '0x6e0797ac987005f5',
-      '1de30bc0ec3c4ead208ddef38fb98a6a78dae0efc8ec7a463805654091559a45',
+      '2a7dff7b7e222213088682580b980e72b25c5a045324ce19a1f59a49b1512014',
       0
     )
 
