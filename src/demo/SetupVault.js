@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
@@ -7,7 +7,7 @@ import Code from '../components/Code'
 
 const simpleTransaction = `\
 import FungibleToken from 0x9a0766d93b6608b7
-import BloctoToken from 0xccc5c610f25031c9
+import BloctoToken from 0x6e0797ac987005f5
 
 transaction {
 
@@ -44,7 +44,7 @@ const SetupVault = () => {
 
   const sendTransaction = async (event) => {
     event.preventDefault()
-    
+
     setStatus("Resolving...")
 
     const blockResponse = await fcl.send([
@@ -52,7 +52,7 @@ const SetupVault = () => {
     ])
 
     const block = await fcl.decode(blockResponse)
-    
+
     try {
       const { transactionId } = await fcl.send([
         fcl.transaction(simpleTransaction),

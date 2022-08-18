@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import * as fcl from "@onflow/fcl"
 import * as t from "@onflow/types"
 
@@ -6,13 +6,13 @@ import Card from '../components/Card'
 import Header from '../components/Header'
 import Code from '../components/Code'
 
-const {ec: EC} = require('elliptic');
-const {SHA3} = require('sha3');
+const { ec: EC } = require('elliptic');
+const { SHA3 } = require('sha3');
 const ec = new EC('secp256k1');
 
 const simpleTransaction = `\
 import FungibleToken from 0x9a0766d93b6608b7
-import BloctoToken from 0xccc5c610f25031c9
+import BloctoToken from 0x6e0797ac987005f5
 
 transaction(amount: UFix64) {
 
@@ -59,7 +59,7 @@ const signWithKey = (privateKey, msgHex) => {
 const getAuth = (address, privateKey, keyId = 0) => async (account = {}) => {
   const addr = address.replace('0x', '');
 
-  const {account: user} = await fcl.send([fcl.getAccount(addr)]);
+  const { account: user } = await fcl.send([fcl.getAccount(addr)]);
 
   const key = user.keys[keyId];
   let sequenceNum;
@@ -90,7 +90,7 @@ const SetupVault = () => {
 
   const sendTransaction = async (event) => {
     event.preventDefault()
-    
+
     setStatus("Resolving...")
 
     const blockResponse = await fcl.send([
@@ -100,11 +100,11 @@ const SetupVault = () => {
     const block = await fcl.decode(blockResponse)
 
     const auth = getAuth(
-      '0xccc5c610f25031c9',
+      '0x6e0797ac987005f5',
       '1de30bc0ec3c4ead208ddef38fb98a6a78dae0efc8ec7a463805654091559a45',
       0
     )
-    
+
     try {
       const { transactionId } = await fcl.send([
         fcl.transaction(simpleTransaction),

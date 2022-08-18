@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, { useState, useEffect } from "react"
 import * as fcl from "@onflow/fcl"
 import * as t from "@onflow/types"
 import bs58 from 'bs58'
@@ -9,7 +9,7 @@ import Code from '../components/Code'
 
 const checkBltAmount = `\
 import FungibleToken from 0x9a0766d93b6608b7
-import BloctoToken from 0xccc5c610f25031c9
+import BloctoToken from 0x6e0797ac987005f5
 
 pub fun main(account: Address): UFix64 {
   let balanceRef = getAccount(account).getCapability(BloctoToken.TokenPublicBalancePath)
@@ -23,7 +23,7 @@ pub fun main(account: Address): UFix64 {
 
 const simpleTransaction = `\
 import FungibleToken from 0x9a0766d93b6608b7
-import BloctoToken from 0xccc5c610f25031c9
+import BloctoToken from 0x6e0797ac987005f5
 import TeleportCustodySolana from 0x967a0fb3c949cbc5
 
 transaction(amount: UFix64, target: String) {
@@ -62,21 +62,21 @@ const TeleportBLT = () => {
   useEffect(() =>
     fcl
       .currentUser()
-      .subscribe(user => setUser({...user}))
-  , [])
+      .subscribe(user => setUser({ ...user }))
+    , [])
 
   useEffect(() => {
-    const fetchData = async () => {  
+    const fetchData = async () => {
       if (!user || !user.addr) {
-        return 
+        return
       }
 
-      try { 
+      try {
         const response = await fcl.send([
           fcl.script(checkBltAmount),
           fcl.args([fcl.arg(user.addr, t.Address)]),
         ]);
-    
+
         const balance = await fcl.decode(response);
 
         setBalance(balance)
@@ -110,7 +110,7 @@ const TeleportBLT = () => {
 
   const sendTransaction = async (event) => {
     event.preventDefault()
-    
+
     setStatus("Resolving...")
 
     const blockResponse = await fcl.send([
@@ -120,7 +120,7 @@ const TeleportBLT = () => {
     const block = await fcl.decode(blockResponse)
 
     const receiver = bs58.decode(addr).toString('hex')
-    
+
     try {
       const { transactionId } = await fcl.send([
         fcl.transaction(simpleTransaction),
