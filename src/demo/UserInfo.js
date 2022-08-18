@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import * as fcl from "@onflow/fcl"
-import { verifyUserSignatures } from './verify'
 
 import Card from '../components/Card'
 import Header from '../components/Header'
@@ -44,22 +43,37 @@ const UserInfo = () => {
             return
           }
 
-          let addr = proofService.data.address
-          let timestamp = proofService.data.timestamp
-          let domainTag = proofService.data.domainTag
+          let address = proofService.data.address
+          let nonce = proofService.data.nonce
+          let appIdentifier = "MY-APP-Local-Testnet"
 
-          const message = fcl.WalletUtils.encodeMessageForProvableAuthnVerifying(
-            addr,
-            timestamp,
-            domainTag
+          const isValid = await fcl.AppUtils.verifyAccountProof(
+            appIdentifier,
+            {
+              address,
+              nonce,
+              signatures: proofService.data.signatures
+            },
+            {
+              fclCryptoContract: '0x5b250a8a85b44a67'
+            }
           )
 
-          const isValid = await fcl.verifyUserSignatures(
-            message,
-            proofService.data.signatures
-          )
+          // const message = fcl.WalletUtils.encodeAccountProof({
+          //   address,
+          //   nonce,
+          //   appIdentifier,
+          // }, false)
 
-          console.log(message, isValid)
+          // const isValid = await fcl.verifyUserSignatures(
+          //   message,
+          //   proofService.data.signatures,
+          //   {
+          //     fclCryptoContract: '0x5b250a8a85b44a67'
+          //   }
+          // )
+
+          console.log(appIdentifier, isValid)
         }
       })
     , [])

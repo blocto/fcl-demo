@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
@@ -36,7 +36,7 @@ const GetAccount = () => {
       <button onClick={runGetAccount}>
         Lookup Account
       </button>
-      
+
       {data && <Code>{JSON.stringify(data, null, 2)}</Code>}
     </Card>
   )

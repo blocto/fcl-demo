@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, { useState, useEffect } from "react"
 import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
@@ -27,8 +27,8 @@ const CurrentUser = () => {
   useEffect(() =>
     fcl
       .currentUser()
-      .subscribe(user => setUser({...user}))
-  , [])
+      .subscribe(user => setUser({ ...user }))
+    , [])
 
   return (
     <Card>
