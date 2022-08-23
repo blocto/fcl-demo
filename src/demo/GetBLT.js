@@ -93,12 +93,6 @@ const SetupVault = () => {
 
     setStatus("Resolving...")
 
-    const blockResponse = await fcl.send([
-      fcl.getLatestBlock(),
-    ])
-
-    const block = await fcl.decode(blockResponse)
-
     const auth = getAuth(
       '0x6e0797ac987005f5',
       '2a7dff7b7e222213088682580b980e72b25c5a045324ce19a1f59a49b1512014',
@@ -114,7 +108,6 @@ const SetupVault = () => {
         fcl.proposer(fcl.currentUser().authorization),
         fcl.authorizations([auth, fcl.currentUser().authorization]),
         fcl.payer(fcl.currentUser().authorization),
-        fcl.ref(block.id),
         fcl.limit(1000),
       ])
 

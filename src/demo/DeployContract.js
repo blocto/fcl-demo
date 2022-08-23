@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import * as fcl from "@onflow/fcl"
 import * as t from "@onflow/types"
 
@@ -36,15 +36,9 @@ const DeployContract = () => {
 
   const runTransaction = async (event) => {
     event.preventDefault()
-    
+
     setStatus("Resolving...")
 
-    const blockResponse = await fcl.send([
-      fcl.getLatestBlock(),
-    ])
-
-    const block = await fcl.decode(blockResponse)
-    
     try {
       const { transactionId } = await fcl.send([
         fcl.transaction(deployTransaction),
@@ -59,7 +53,6 @@ const DeployContract = () => {
           fcl.currentUser().authorization
         ]),
         fcl.payer(fcl.currentUser().authorization),
-        fcl.ref(block.id),
       ])
 
       setStatus("Transaction sent, waiting for confirmation")
@@ -68,7 +61,7 @@ const DeployContract = () => {
         .tx({ transactionId })
         .subscribe(transaction => {
           setTransaction(transaction)
-          
+
           if (fcl.tx.isSealed(transaction)) {
             setStatus("Transaction is Sealed")
             unsub()

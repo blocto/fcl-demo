@@ -2,7 +2,7 @@
   "name": "fcl-demo",
   "version": "0.1.0",
   "dependencies": {
-    "@onflow/fcl": "^0.0.72",
+    "@onflow/fcl": "^1.0.0",
     "@onflow/types": "^0.0.4",
     "bs58": "^4.0.1",
     "elliptic": "^6.5.4",

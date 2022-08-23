@@ -47,12 +47,6 @@ const SetupVault = () => {
 
     setStatus("Resolving...")
 
-    const blockResponse = await fcl.send([
-      fcl.getLatestBlock(),
-    ])
-
-    const block = await fcl.decode(blockResponse)
-
     try {
       const { transactionId } = await fcl.send([
         fcl.transaction(simpleTransaction),
@@ -61,7 +55,6 @@ const SetupVault = () => {
           fcl.currentUser().authorization,
         ]),
         fcl.payer(fcl.currentUser().authorization),
-        fcl.ref(block.id),
         fcl.limit(1000),
       ])
 

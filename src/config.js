@@ -6,3 +6,4 @@ fcl.config()
   .put("challenge.scope", "email") // request for Email
   .put("accessNode.api", "https://access-testnet.onflow.org") // Flow testnet
   .put("challenge.handshake", "https://flow-wallet-testnet.blocto.app/authn") // Blocto testnet wallet
+  .put("discovery.wallet.method", "TAB/RPC")
