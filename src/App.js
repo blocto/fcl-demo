@@ -10,6 +10,7 @@ import ScriptTwo from './demo/ScriptTwo'
 import Authenticate from './demo/Authenticate'
 import UserInfo from './demo/UserInfo'
 import SendTransaction from './demo/SendTransaction'
+import SendTransactionTemplate from './demo/SendTransactionTemplate'
 import SignMessage from './demo/SignMessage'
 import SendFUSD from './demo/SendFUSD'
 import DeployContract from './demo/DeployContract'
@@ -35,6 +36,7 @@ function App() {
         <Authenticate />
         <UserInfo />
         <SendTransaction />
+        <SendTransactionTemplate />
         <SignMessage />
         <SendFUSD />
         <DeployContract />
