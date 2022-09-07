@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import * as fcl from "@blocto/fcl"
+import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
 import Header from '../components/Header'

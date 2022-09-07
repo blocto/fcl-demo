@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import * as fcl from "@blocto/fcl"
+import * as fcl from "@onflow/fcl"
 import * as t from "@onflow/types"
 
 import Card from '../components/Card'
@@ -109,12 +109,6 @@ const SendFUSD = () => {
 
     setStatus("Resolving...")
 
-    const blockResponse = await fcl.send([
-      fcl.getLatestBlock(),
-    ])
-
-    const block = await fcl.decode(blockResponse)
-
     try {
       const { transactionId } = await fcl.send([
         fcl.transaction(simpleTransaction),
@@ -127,7 +121,6 @@ const SendFUSD = () => {
           fcl.currentUser().authorization,
         ]),
         fcl.payer(fcl.currentUser().authorization),
-        fcl.ref(block.id),
         fcl.limit(1000),
       ])
 

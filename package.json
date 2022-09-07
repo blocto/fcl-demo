@@ -2,7 +2,7 @@
   "name": "fcl-demo",
   "version": "0.1.0",
   "dependencies": {
-    "@blocto/fcl": "^0.0.78-alpha.8",
+    "@onflow/fcl": "^1.3.0-alpha.5",
     "@onflow/types": "^0.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

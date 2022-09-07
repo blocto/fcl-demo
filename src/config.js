@@ -1,4 +1,4 @@
-import * as fcl from "@blocto/fcl"
+import * as fcl from "@onflow/fcl"
 
 fcl.config()
   // .put("accessNode.api", "http://localhost:8080") // local Flow emulator

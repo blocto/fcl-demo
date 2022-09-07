@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import * as fcl from "@blocto/fcl"
+import * as fcl from "@onflow/fcl"
 
 import Card from '../components/Card'
 import Header from '../components/Header'
@@ -31,18 +31,11 @@ const InteractWithContract = () => {
 
     setStatus("Resolving...")
 
-    const blockResponse = await fcl.send([
-      fcl.getLatestBlock(),
-    ])
-
-    const block = await fcl.decode(blockResponse)
-
     try {
       const { transactionId } = await fcl.send([
         fcl.transaction(simpleTransaction(addr)),
         fcl.proposer(fcl.currentUser().authorization),
         fcl.payer(fcl.currentUser().authorization),
-        fcl.ref(block.id),
       ])
 
       setStatus("Transaction sent, waiting for confirmation")
