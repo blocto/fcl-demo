@@ -5,8 +5,6 @@ import Card from '../components/Card'
 import Header from '../components/Header'
 import Code from '../components/Code'
 
-import flowTransfer from '../templates/flow-transfer-tokens.template.json'
-
 const SendTransaction = () => {
   const [status, setStatus] = useState("Not started")
   const [addr, setAddr] = useState(null)
@@ -20,8 +18,9 @@ const SendTransaction = () => {
 
     try {
       const transactionId = await fcl.mutate({
-        template: flowTransfer,
-        args: (arg, t) => [arg("1.0", t.UFix64), arg("0xABC123DEF456", t.Address)],
+        template: 'https://flix.flow.com/v1/templates/290b6b6222b2a77b16db896a80ddf29ebd1fa3038c9e6625a933fa213fce51fa',
+        args: (arg, t) => [arg(amount, t.UFix64), arg(addr, t.Address)],
+        limit: 9999
       })
 
       setStatus("Transaction sent, waiting for confirmation")

@@ -6,6 +6,6 @@ fcl.config()
   .put("flow.network", "testnet")
   .put("challenge.scope", "email") // request for Email
   .put("accessNode.api", "https://rest-testnet.onflow.org") // Flow testnet
-  .put("discovery.wallet", "https://flow-wallet-testnet.blocto.app/api/flow/authn") // Blocto testnet wallet
+  .put("discovery.wallet", "http://10.100.2.81:8702/api/flow/authn") // Blocto testnet wallet
   .put("discovery.wallet.method", "HTTP/POST")
   .put("service.OpenID.scopes", "email!")
