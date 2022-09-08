@@ -4,17 +4,17 @@ import styled from 'styled-components'
 import Section from './components/Section'
 import Header from './components/Header'
 
-import GetAccount from './demo/GetAccount'
-import ScriptOne from "./demo/ScriptOne"
-import ScriptTwo from './demo/ScriptTwo'
+// import GetAccount from './demo/GetAccount'
+// import ScriptOne from "./demo/ScriptOne"
+// import ScriptTwo from './demo/ScriptTwo'
 import Authenticate from './demo/Authenticate'
 import UserInfo from './demo/UserInfo'
-import SendTransaction from './demo/SendTransaction'
+// import SendTransaction from './demo/SendTransaction'
 import SendTransactionTemplate from './demo/SendTransactionTemplate'
-import SignMessage from './demo/SignMessage'
-import SendFUSD from './demo/SendFUSD'
-import DeployContract from './demo/DeployContract'
-import InteractWithContract from './demo/InteractWithContract'
+// import SignMessage from './demo/SignMessage'
+// import SendFUSD from './demo/SendFUSD'
+// import DeployContract from './demo/DeployContract'
+// import InteractWithContract from './demo/InteractWithContract'
 
 const Wrapper = styled.div`
   font-size: 13px;
@@ -24,23 +24,23 @@ const Wrapper = styled.div`
 function App() {
   return (
     <Wrapper>
-      <Section>
+      {/* <Section>
         <Header>READ from FCL</Header>
         <GetAccount />
         <ScriptOne />
         <ScriptTwo />
-      </Section>
+      </Section> */}
 
       <Section>
         <Header>FCL wallet interactions</Header>
         <Authenticate />
         <UserInfo />
-        <SendTransaction />
+        {/* <SendTransaction /> */}
         <SendTransactionTemplate />
-        <SignMessage />
+        {/* <SignMessage />
         <SendFUSD />
         <DeployContract />
-        <InteractWithContract />
+        <InteractWithContract /> */}
       </Section>
     </Wrapper>
   );
