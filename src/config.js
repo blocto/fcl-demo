@@ -13,7 +13,8 @@ const resolver = () => {
 fcl.config({
   'env': 'testnet',
   'accessNode.api': 'https://rest-testnet.onflow.org',
-  'discovery.wallet': 'https://flow-wallet-testnet.blocto.app/authn',
+  'discovery.wallet': 'https://flow-wallet-testnet.blocto.app/api/flow/authn',
+  'discovery.wallet.method': 'HTTP/POST',
   'app.detail.title': 'MY-APP-Local-Testnet',
   'fcl.appDomainTag': 'MY-APP-Local-Testnet',
   'fcl.accountProof.resolver': resolver,
