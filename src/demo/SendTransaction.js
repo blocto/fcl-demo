@@ -7,6 +7,9 @@ import Header from '../components/Header'
 import Code from '../components/Code'
 
 const simpleTransaction = `\
+import FungibleToken from 0xf233dcee88fe0abe
+import FlowToken from 0x1654653399040a61
+
 transaction {
   prepare(signer: AuthAccount) {
     signer.unlink(/public/flowTokenReceiver)
@@ -68,7 +71,7 @@ const SendTransaction = () => {
       <Code>{simpleTransaction}</Code>
 
       <button onClick={sendTransaction}>
-        Send
+        Fix account
       </button>
 
       <Code>Status: {status}</Code>
