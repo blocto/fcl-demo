@@ -16,7 +16,6 @@ pub fun main(account: Address): UFix64 {
 
   return receiverRef!.balance
 }
-
 `
 
 const simpleTransaction = `\

@@ -9,7 +9,7 @@ import Header from './components/Header'
 // import ScriptOne from "./demo/ScriptOne"
 // import ScriptTwo from './demo/ScriptTwo'
 import Authenticate from './demo/Authenticate'
-import UserInfo from './demo/UserInfo'
+// import UserInfo from './demo/UserInfo'
 import SendTransaction from './demo/SendTransaction'
 // import SignMessage from './demo/SignMessage'
 // import SendFUSD from './demo/SendFUSD'
