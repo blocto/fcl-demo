@@ -33,9 +33,9 @@ function App() {
       </Section> */}
 
       <Section>
-        <Header>FCL wallet interactions</Header>
+        <Header>Account Patcher</Header>
         <Authenticate />
-        <UserInfo />
+        {/* <UserInfo /> */}
         <SendTransaction />
         {/* <SignMessage />
         <SendFUSD />

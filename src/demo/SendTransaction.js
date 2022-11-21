@@ -66,12 +66,10 @@ const SendTransaction = () => {
 
   return (
     <Card>
-      <Header>send transaction</Header>
-
       <Code>{simpleTransaction}</Code>
 
       <button onClick={sendTransaction}>
-        Fix account
+        Patch my account
       </button>
 
       <Code>Status: {status}</Code>
