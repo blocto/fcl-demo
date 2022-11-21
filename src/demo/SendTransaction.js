@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import * as fcl from "@portto/fcl"
-import * as t from "@onflow/types"
 
 import Card from '../components/Card'
 // import Header from '../components/Header'
@@ -36,9 +35,7 @@ const SendTransaction = () => {
     try {
       const { transactionId } = await fcl.send([
         fcl.transaction(simpleTransaction),
-        fcl.args([
-          fcl.arg(3, t.Int),
-        ]),
+
         fcl.proposer(fcl.currentUser().authorization),
         fcl.authorizations([fcl.currentUser().authorization]),
         fcl.payer(fcl.currentUser().authorization),
