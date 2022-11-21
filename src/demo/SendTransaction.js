@@ -12,12 +12,12 @@ import FUSD from 0x3c5959b568896393
 
 transaction {
   prepare(signer: AuthAccount) {
-    if acct.getCapability<&{FungibleToken.Provider}>(/public/flowTokenReceiver).check() {
+    if signer.getCapability<&{FungibleToken.Provider}>(/public/flowTokenReceiver).check() {
       signer.unlink(/public/flowTokenReceiver)
       signer.link<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver, target: /storage/flowTokenVault)
     }
 
-    if acct.getCapability<&{FungibleToken.Provider}>(/public/fusdReceiver).check() {
+    if signer.getCapability<&{FungibleToken.Provider}>(/public/fusdReceiver).check() {
       signer.unlink(/public/fusdReceiver)
       signer.link<&FUSD.Vault{FungibleToken.Receiver}>(/public/fusdReceiver, target: /storage/fusdVault)
     }
