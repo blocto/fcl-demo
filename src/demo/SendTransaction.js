@@ -8,11 +8,19 @@ import Code from '../components/Code'
 const simpleTransaction = `\
 import FungibleToken from 0xf233dcee88fe0abe
 import FlowToken from 0x1654653399040a61
+import FUSD from 0x3c5959b568896393
 
 transaction {
   prepare(signer: AuthAccount) {
-    signer.unlink(/public/flowTokenReceiver)
-    signer.link<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver, target: /storage/flowTokenVault)
+    if acct.getCapability<&{FungibleToken.Provider}>(/public/flowTokenReceiver).check() {
+      signer.unlink(/public/flowTokenReceiver)
+      signer.link<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver, target: /storage/flowTokenVault)
+    }
+
+    if acct.getCapability<&{FungibleToken.Provider}>(/public/fusdReceiver).check() {
+      signer.unlink(/public/fusdReceiver)
+      signer.link<&FUSD.Vault{FungibleToken.Receiver}>(/public/fusdReceiver, target: /storage/fusdVault)
+    }
   }
 }
 `
