@@ -7,9 +7,10 @@ import Header from '../components/Header'
 import Code from '../components/Code'
 
 const simpleTransaction = `\
-transaction(keyIndex: Int) {
+transaction {
   prepare(signer: AuthAccount) {
-    signer.removePublicKey(keyIndex)
+    signer.unlink(/public/flowTokenReceiver)
+    signer.link<&FlowToken.Vault{FungibleToken.Receiver}>(/public/flowTokenReceiver, target: /storage/flowTokenVault)
   }
 }
 `
